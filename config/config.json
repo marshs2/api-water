@@ -1,0 +1,32 @@
+{
+    "server": {
+      "protocol": "http",
+      "port": {
+        "_http": "2017",
+        "http": "1917"
+      },
+      "logging": {
+        "appLogName": "dev-ecom-mailer.log",
+        "logsDirectory": "/tmp",
+        "datePattern": ".yyyy-MM-ddTHH"
+      }
+    },
+    "worker": {
+      "logging": {
+        "appLogName": "dev-ecom-mailer-worker.log",
+        "logsDirectory": "/tmp",
+        "datePattern": ".yyyy-MM-ddTHH"
+      }
+    },
+    "rethinkdb": {
+      "buffer": 1,
+      "max": 4,
+      "protocol": "http",
+      "host": "localhost",
+      "port": "28015",
+      "db": "EComConfigs"
+    },
+    "ecom-mailer": {},
+    "environment": "ecom-mailer"
+  }
+  

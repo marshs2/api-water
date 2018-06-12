@@ -1,0 +1,55 @@
+### Best Practises for maintaining node dependencies version  ###
+# Use .npmrc file for managing same version across developers when installing dependencies.
+# https://www.codementor.io/mattgoldspink/nodejs-best-practices-du1086jja
+https://www.npmjs.com/package/lodash
+
+###     Most Important dependencies     ###
+1.  ExpressJs -   https://expressjs.com/
+2.  nconf -  https://github.com/indexzero/nconf  
+3.  require-glob  -   https://www.npmjs.com/package/require-glob
+4.  lodash
+5.  bodyparser
+6.  cookie Parser
+
+### Best Pratcises for Logging Monitor Logging and Application  ###
+https://github.com/winstonjs/winston
+https://github.com/RuntimeTools/appmetrics
+https://github.com/RuntimeTools/appmetrics-dash
+https://keymetrics.io/
+
+
+### Best practices for node js ###
+https://blog.risingstack.com/node-js-best-practices-2017/
+https://blog.risingstack.com/10-best-practices-for-writing-node-js-rest-apis/
+https://blog.risingstack.com/node-hero-node-js-project-structure-tutorial/
+https://blog.risingstack.com/node-js-project-structure-tutorial-node-js-at-scale/
+https://www.codementor.io/mattgoldspink/nodejs-best-practices-du1086jja
+https://www.terlici.com/2014/08/25/best-practices-express-structure.html //yet to read
+https://github.com/i0natan/nodebestpractices
+
+### Style Guide Javascript 
+https://google.github.io/styleguide/javascriptguide.xml
+
+### Api Documentation Best Practises ###
+https://scotch.io/tutorials/speed-up-your-restful-api-development-in-node-js-with-swagger
+https://garywoodfine.com/restful-web-api-node-js/
+
+
+### Online IDE 
+https://stackblitz.com/
+
+### Wrap common utilities as npm packages 
+### Local Module for bundling common utilities with the custom wrapper Module so it can be used as like npm dependencies
+https://github.com/i0natan/nodebestpractices/blob/master/sections/projectstructre/wraputilities.md
+https://medium.com/@arnaudrinquin/build-modular-application-with-npm-local-modules-dfc5ff047bcc
+
+### VSCode Node js Extensions + Usage + References
+https://code.visualstudio.com/docs/nodejs/nodejs-tutorial
+https://code.visualstudio.com/docs/nodejs/extensions
+https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense
+
+
+### NPM Postgress Libraray reference + Project Structure
+https://node-postgres.com/features/connecting
+https://node-postgres.com/guides/project-structure
+

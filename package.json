@@ -1,0 +1,23 @@
+{
+  "name": "water_simple",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "17.5.1",
+    "pg": "7.4.3",
+    "standard": "11.0.1"
+  },
+  "devDependencies": {
+    "standard": "11.0.1"
+  }
+}

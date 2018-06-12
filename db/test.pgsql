@@ -1,0 +1,12 @@
+-- CREATE TABLE account(
+--  user_id serial PRIMARY KEY,
+--  username VARCHAR (50) UNIQUE NOT NULL,
+--  password VARCHAR (50) NOT NULL,
+--  email VARCHAR (355) UNIQUE NOT NULL,
+--  created_on TIMESTAMP NOT NULL,
+--  last_login TIMESTAMP
+-- );
+-- INSERT INTO account(user_id,username,password,email,created_on,last_login) VALUES ('1','prem','123','prem@gmail.com','12-04-2018','12-04-2018');
+-- SELECT * FROM test_table; //local db table
+SELECT * FROM testtable;
+-- INSERT INTO testtable(id,name) VALUES ('1','awsprem');

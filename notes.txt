@@ -1,0 +1,36 @@
+
+### Code Best Pratcises
+1.  Routes are defined in module specific constants which should not be hard coded. (So Changing Routes will be Easier at one place)
+2.  Read Environment specific variable from node Environment which should not be in code.
+3.  Keep Middle Ware like Express in WebLayer only and pass computed context object to DAL (data access layer) .Reference https://raw.githubusercontent.com/i0natan/nodebestpractices/master/assets/images/keepexpressinweb.gif
+
+
+###  Javascript Code Style Guide  ###
+
+functionNamesLikeThis
+variableNamesLikeThis
+ClassNamesLikeThis
+EnumNamesLikeThis
+methodNamesLikeThis
+CONSTANT_VALUES_LIKE_THIS
+foo.namespaceNamesLikeThis.bar
+filenameslikethis.js.
+
+### Test your code TDD ###
+unit testing , integration testing , e2e testing
+
+### Worker 
+
+crown Worker
+
+
+### Messaging Queue Sending Mail From Quew
+
+RabbitMQ
+
+
+#### Ignore Git Node Modeules 
+touch .gitignore && echo "node_modules/" >> .gitignore
+
+### Aync Library
+https://www.npmjs.com/package/co
