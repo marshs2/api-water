@@ -5,6 +5,14 @@
 class SignUpLoginModel {
   constructor (options) {
     this.options = options
+    console.log('signup-login model', options.express)
+  }
+  checkUserExists () {}
+  sendOTP () {}
+  validateAccessToken () {}
+  updateUserData () {}
+  handler (request, response) {
+    response.send('hello')
   }
 }
 module.exports = SignUpLoginModel
