@@ -5,21 +5,37 @@
  getServer();
  */
 'use strict'
-const hapi = require('hapi')
-
+const express = require('express')
+const app = express()
+const _ = require('lodash')
+/*
+options contains config related information
+*/
 class MiddleWare {
   constructor (options) {
-    this.server = hapi.server({
-      port: options.port,
-      host: options.host
-    })
+    if (!MiddleWare.instance) {
+      this.options = options
+      MiddleWare.instance = this
+    }
+    return MiddleWare.instance
   }
-  registerRoute (config) {
-    this.server.route(config)
+  registerRoute () {
+
   }
-  async startServer () {
-    await this.server.start()
-    console.log(`Server running on port : $(this.server.info.uri)`)
+  getRouter () {
+    return express.Router()
+  }
+  getApp () {
+    return app
+  }
+  addMiddleWare (middleware) {
+    if (_.get(middleware, 'path') && _.get(middleware, 'callback')) {
+      app.use(middleware.path, middleware.callback)
+    } else if (_.get(middleware, 'callback')) {
+      app.use(middleware.callback)
+    }
   }
 }
-module.exports = MiddleWare
+const instance = new MiddleWare()
+Object.freeze(instance)
+module.exports = instance

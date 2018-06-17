@@ -1,3 +1,9 @@
-/* 
-This file contains information about all generic errors used across application
-*/
+{
+    "COMMON":{
+        "FILE_NOT_FOUND":{
+            "REASON":"FILE NOT FOUND",
+            "MESSAGE":"PATH TO FILE NOT EXIST",
+            "CODE":400
+        }
+    }
+}

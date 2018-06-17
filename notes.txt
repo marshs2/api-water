@@ -34,3 +34,105 @@ touch .gitignore && echo "node_modules/" >> .gitignore
 
 ### Aync Library
 https://www.npmjs.com/package/co
+
+### Middle Ware Injection
+
+Really very useful before your route handler gets executed.
+Path Specific middle ware Injection
+Example in Some Path if you want db data at pre execution before route handler it is helpful.
+
+function dbMiddleware (req, res, next) {
+  getFromDb(req.params.id) //see app.get below
+  .then(function(data) {
+    req.dbData = data
+    next()
+  })
+  .catch(function (error) {
+    res.status(500).end() //replace with proper error handling
+  })
+}
+app.get('/data/:id', [dbMiddleware], handler)
+
+
+### Used for User Logging status
+
+function logMiddleware (req, res, next) {
+  logLastActiveAt(req.user.id, new Date())
+  next()
+}
+app.use(userMiddleware)
+app.use(logMiddleware)
+app.get('/someroute', handler)
+
+
+#####################
+Run Scripts
+
+Use npm run commandname
+
+#### Errors defining standards and status code ####
+
+https://cloud.google.com/storage/docs/json_api/v1/status-codes
+
+
+#### Postgress Environment Variables 
+    "pgsql.connection": "postgres://power_user:poweruserpassword@ec2-13-127-170-233.ap-south-1.compute.amazonaws.com:5432/postgres"
+
+  PGUSER=power_user \
+  PGHOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com \
+  PGPASSWORD=poweruserpassword \
+  PGDATABASE=postgres \
+  PGPORT=5432 \
+  npm run runPgScript
+
+### node postgree tutorial
+
+https://node-postgres.com/features/queries
+  
+### init script app.js with environment variables
+
+PGUSER=power_user \
+PGHOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com \
+PGPASSWORD=poweruserpassword \
+PGDATABASE=postgres \
+PGPORT=5432 \
+NODE_ENV=development \
+NODE_HOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com \
+index.js
+
+### Run using babel for async await support
+PGUSER=power_user \
+PGHOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com \
+PGPASSWORD=poweruserpassword \
+PGDATABASE=postgres \
+PGPORT=5432 \
+NODE_ENV=development \
+NODE_HOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com \
+npm run runByBabel
+
+
+
+### VSCODE EXTENSIONS
+
+code alignment - beautify
+code standards - javascript standard
+node intellisense - npm intellisense
+
+### Error Handling Node js
+
+https://www.joyent.com/node-js/production/design/errors
+
+### pm2 Useful commands
+pm2 start index.js
+pm2 show <id|name>` to get more details about an app
+
+
+### Node Version Manager nvm
+
+nvm install --lts   //v8.11.3
+nvm install 6.1.0
+
+
+### Debugging Node using nvm 
+Change your launch confog
+"runtimeExecutable": "/Users/ecom-s.prem/.nvm/versions/node/v8.11.3/bin/node"

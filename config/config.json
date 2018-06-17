@@ -1,32 +1,39 @@
 {
-    "server": {
-      "protocol": "http",
-      "port": {
-        "_http": "2017",
-        "http": "1917"
-      },
-      "logging": {
-        "appLogName": "dev-ecom-mailer.log",
-        "logsDirectory": "/tmp",
-        "datePattern": ".yyyy-MM-ddTHH"
+  "server": {
+    "default_host": "localhost",
+    "default_port": "3000",
+    "keys": {
+      "host": "NODE_HOST",
+      "environment": "NODE_ENV",
+      "port": "PORT"
+    }
+  },
+  "logging": {
+    "app_logging": {
+      "name": "appname.log",
+      "path": "/path_to_logfile"
+    }
+  },
+  "db": {
+    "sql": {
+      "name": "postgresql",
+      "version": "10",
+      "keys": {
+        "user": "PGUSER",
+        "host": "PGHOST",
+        "password": "PGPASSWORD",
+        "database": "PGDATABASE",
+        "port": "PGPORT"
       }
     },
-    "worker": {
-      "logging": {
-        "appLogName": "dev-ecom-mailer-worker.log",
-        "logsDirectory": "/tmp",
-        "datePattern": ".yyyy-MM-ddTHH"
-      }
-    },
-    "rethinkdb": {
-      "buffer": 1,
-      "max": 4,
-      "protocol": "http",
-      "host": "localhost",
-      "port": "28015",
-      "db": "EComConfigs"
-    },
-    "ecom-mailer": {},
-    "environment": "ecom-mailer"
+    "nosql": {
+      "name": "couchdb",
+      "version": "Not_decided",
+      "user": "Not_decided",
+      "password": "Not_decided",
+      "port": "Not_decided",
+      "database": "Not_decided",
+      "host": "ec2-13-127-170-233.ap-south-1.compute.amazonaws.com"
+    }
   }
-  
+}

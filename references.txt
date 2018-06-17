@@ -53,3 +53,5 @@ https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intelli
 https://node-postgres.com/features/connecting
 https://node-postgres.com/guides/project-structure
 
+### Error Handling Node js
+https://www.joyent.com/node-js/production/design/errors
