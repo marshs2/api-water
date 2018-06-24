@@ -57,9 +57,9 @@ function initServer () {
   return promise
 }
 
-function initMiddleWare(){
-  
-}
+// function initMiddleWare(){
+
+// }
 
 async function init () {
   let config
