@@ -10,7 +10,11 @@ class SignUpRoutes {
     this.options = options
   }
   initRoutes () {
-    routerService.addRouter({path: '/signup_google', callback: signupLogin.validateGoogle.bind(signupLogin)})
+    try {
+      routerService.addRouter({path: '/signup_google', callback: signupLogin.validateGoogle.bind(signupLogin)})
+    } catch (error) {
+      console.log('Router init error -> context -> SignUpRoutes')
+    }
   }
   getRouter () {
     return routerService.getRouter()
