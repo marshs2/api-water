@@ -21,7 +21,7 @@ class SignUpLoginModel {
     response.send('hello')
   }
 
-  validatePhone (request, response) {
+  validateGoogle (request, response) {
     this.setHeader(response)
     response.send({sucess: true})
   }

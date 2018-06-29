@@ -136,3 +136,19 @@ nvm install 6.1.0
 ### Debugging Node using nvm 
 Change your launch confog
 "runtimeExecutable": "/Users/ecom-s.prem/.nvm/versions/node/v8.11.3/bin/node"
+
+
+### code intellisense for our Library Format  ###
+
+..  For Object Datatypes and custom things follow this format  ..  
+/** @description Adds api routes and handler
+ * @param {} {Object} { path :'path_to_route' , callback : 'your_route_callback' }
+ * @return {null}
+ */
+
+..  For In Built Datatypes  follow this format   ..  
+
+ /** @description Adds api routes and handler
+ * @param {string} { path :'path_to_route' , callback : 'your_route_callback' }
+ * @return {string}
+ */

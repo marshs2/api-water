@@ -1,5 +1,5 @@
 <script src="jquery-3.3.1.min.js"></script>
-<button onclick="checkUseCase()">test</button>
+<button onclick="test()">test</button>
 <script>    
 function phoneValidate()
 {
@@ -14,5 +14,21 @@ function checkUseCase(){
     console.log(data);
   });
 }
+var resolveCallback,rejectCallback;
+var promise =  new Promise((resolve,reject)=>{
+    resolveCallback = resolve;
+    rejectCallback = reject;
+});
+
+
+
+function test(){
+  promise.then(function(){
+
+  }).catch()
+}
+
+
+
 
 </script>

@@ -4,14 +4,16 @@
    Only web layer logic presents here and context object preparation based on requested resource goes here
    Because passing express to Bussiness Logic breaks the testing of bussiness logic code.
 */
+let path = require('path')
+let SignUpLoginRoutes = require(path.join(__dirname, 'signup-login-routes.js'))
+let signupLoginRoutes
 
-const path = require('path')
-let SignUpLoginModel = require(path.join(__dirname, 'signup-login-model.js'))
-let signupLogin
-let apiPrefix = '/api/v1/'
+let apiPrefix = '/api/v1'
+
 function init (options) {
-  signupLogin = new SignUpLoginModel(options)
-  options.app.get(apiPrefix + 'signup_login_phone', (req, res) => signupLogin.validatePhone(req, res))
+  signupLoginRoutes = new SignUpLoginRoutes(options)
+  signupLoginRoutes.initRoutes()
+  options.app.use(apiPrefix, signupLoginRoutes.getRouter())
 }
 
 module.exports = init
