@@ -1,0 +1,4 @@
+index.js -> conf,server function in one file should be break down / modularised 
+jwt token service
+custom middleware service for api input and header validation(jwt token validation, csrf token validation, xss validation)
+sample json form input -> back end get with body parser,cookie parser

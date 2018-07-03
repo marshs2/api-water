@@ -1,8 +1,8 @@
 {
-    "apps" : [{
-      "name"        : "api-water",
-      "script"      : "index.js",
-      "watch"       : "./",
-      "log_date_format"  : "YYYY-MM-DD HH:mm Z"
-    }]
-  }
+  "apps" : [{
+    "name"        : "api-water",
+    "script"      : "./index.js",
+    "watch"       : "./",
+    "log_date_format"  : "YYYY-MM-DD HH:mm Z"
+  }]
+}

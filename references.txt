@@ -55,3 +55,15 @@ https://node-postgres.com/guides/project-structure
 
 ### Error Handling Node js
 https://www.joyent.com/node-js/production/design/errors
+
+### Security
+https://stackoverflow.com/questions/5207160/what-is-a-csrf-token-what-is-its-importance-and-how-does-it-work
+https://medium.freecodecamp.org/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52
+
+### pm2 for node app managment   ###
+https://pm2.io/doc/en/runtime/best-practices/graceful-shutdown/
+
+### Http header and status code    ###
+
+https://en.wikipedia.org/wiki/List_of_HTTP_header_fields
+https://en.wikipedia.org/wiki/List_of_HTTP_status_codes

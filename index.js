@@ -11,6 +11,7 @@ let _ = require('lodash')
 let configuaration = {}
 let ConfiguarationManger = require('./services/configuaration')
 let app = express()
+let server
 const configPath = './config/config.json'
 
 function initComponentRoutes (options) {
@@ -46,7 +47,7 @@ function initServer () {
     try {
       port = configuaration.config_scope.getConfig('PORT') ||
       configuaration.config_scope.getConfig('server:default_port')
-      app.listen(port, () => {
+      server = app.listen(port, () => {
         console.log('server running on ', port)
         resolve({status: 'running', port: port})
       })
@@ -78,3 +79,26 @@ async function init () {
 }
 
 init()
+
+/* Graceful Shutdown During pm2 stop command this event will trigger.
+   Server close will finish ongoing process wothout abrupt stop.
+   DB connection close and resource release can be performed here.
+ */
+process.on('SIGINT', () => {
+  console.info('SIG INT RECEIVED')
+  server.close((err) => {
+    if (err) {
+      console.log('Exit Error', err)
+      process.exit(1)
+    }
+  })
+})
+process.on('message', (msg) => {
+  if (msg === 'shutdown') {
+    console.log('Closing all connections...')
+    setTimeout(() => {
+      console.log('Finished closing connections')
+      process.exit(0)
+    }, 1500)
+  }
+})
