@@ -195,6 +195,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 6. Two-Factor Authentication and Authentication Providers
 http://openid.net/connect/
 https://kantarainitiative.org/confluence/display/uma/Home
+
+7. Sanitization
+looking for form content contains any maliculous code 
 ====
 
 Techniques for Security

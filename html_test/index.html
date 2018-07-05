@@ -1,5 +1,9 @@
 <script src="jquery-3.3.1.min.js"></script>
 <button onclick="test()">test</button>
+<!-- <form action="/" method="post"> -->
+  <input type="text" id="username" name="username"/>
+  <button type="submit" id="submit">submit</button>
+<!-- </form> -->
 <script>    
 function phoneValidate()
 {
@@ -29,6 +33,13 @@ function test(){
 }
 
 
-
+$(document).ready(function(){
+  $('#submit').click(function(){
+    
+    $.post("http://localhost:3000/testpost",{user:$('#username').val()},function(data){
+      console.log("data",data);
+    })
+  })
+})
 
 </script>
