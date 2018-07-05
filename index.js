@@ -9,7 +9,7 @@ let requireGlob = require('require-glob')
 let componentRoutes = requireGlob('./components/**/index.js')
 let _ = require('lodash')
 let configuaration = {}
-let ConfiguarationManger = require('./services/configuaration')
+let ConfiguarationManger = require('./services/configuaration-service/configuaration-service')
 let app = express()
 let server
 const configPath = './config/config.json'

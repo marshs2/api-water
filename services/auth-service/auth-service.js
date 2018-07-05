@@ -20,10 +20,10 @@ class AuthService {
         reject(new Error('secret is empty'))
       }
       if ((options.private_key && !options.algorithm) ||
-        (!options['private_key'] && options['algorithm'])) {
+        (!options.private_key && options.algorithm)) {
         reject(new Error('algorithm and private key both must be present'))
-      } else if (options.algorithm != 'RS256') {
-        reject(new Error('Unknown algorithm .RS256 supported'))
+      } else if (options.algorithm !== 'RS256') {
+        reject(new Error('Unknown algorithm supported' + options.algorithm))
       }
       if (options.private_key) {
         let cert = fs.readFileSync(options.private_key)
