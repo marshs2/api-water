@@ -1,3 +1,6 @@
+/* This Crypto Service is used for data encryption,decryption and encryption decryption with salt.
+   Used for hashing senstive data like password
+ */
 let crypto = require('crypto')
 let singleton = Symbol('singleton')
 let bcrypt = require('bcryptjs')
