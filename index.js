@@ -1,35 +1,24 @@
 /*
     This is an Start up script
     Responsible for passing server,db and other configuration objects to the respective components.
-    It imports middle ware framework like expressjs,hapi any required libraries needed for it.
+    It imports middle ware framework like expressjs any required libraries needed for it.
     Complie with new ecma script
 */
-let express = require('express')
 let requireGlob = require('require-glob')
 let componentRoutes = requireGlob('./components/**/index.js')
 let _ = require('lodash')
 let configuaration = {}
 let ConfiguarationManger = require('./services/configuaration-service/configuaration-service')
-let app = express()
-let server
 const configPath = './config/config.json'
+let RouteBootstrap = require('./services/route-bootstrap/route-bootstrap-service')
+let bootstrapRoute = new RouteBootstrap()
+let Server = require('./services/server/server-service')
+let server = new Server()
+let serverConfig
 
-function initComponentRoutes (options) {
-  let promise = new Promise((resolve, reject) => {
-    componentRoutes.then((data) => {
-      _.forEach(data, function (value, key) {
-        data[key].index(options)
-      })
-      resolve({
-        sucess: 'sucess',
-        scope: 'componentRoutesInit'
-      })
-    }).catch((error) => {
-      reject(error)
-    })
-  })
-  return promise
-}
+_.assign(configuaration, {
+  componentRoutes: componentRoutes
+})
 
 function initConfiguaration (path) {
   let configManager = new ConfiguarationManger({
@@ -41,38 +30,26 @@ function initConfiguaration (path) {
   return promise
 }
 
-function initServer () {
-  let port
-  let promise = new Promise((resolve, reject) => {
-    try {
-      port = configuaration.config_scope.getConfig('PORT') ||
-      configuaration.config_scope.getConfig('server:default_port')
-      server = app.listen(port, () => {
-        console.log('server running on ', port)
-        resolve({status: 'running', port: port})
-      })
-    } catch (error) {
-      reject(error)
-    }
-  })
-  return promise
-}
-
 async function init () {
   let config
 
   try {
-    _.assign(configuaration, {
-      express: express,
-      app: app
-    })
     config = await initConfiguaration(configPath)
     _.assign(configuaration, {
       config: config.data,
       config_scope: config.scope
     })
-    await initServer()
-    await initComponentRoutes(configuaration)
+    serverConfig = await server.initServer({
+      port: configuaration.config_scope.getConfig('PORT') ||
+        configuaration.config_scope.getConfig('server:default_port')
+    })
+    server = serverConfig.server
+    _.assign(configuaration, {
+      express: serverConfig.express,
+      app: serverConfig.app
+    })
+
+    await bootstrapRoute.initComponentRoutes(configuaration)
   } catch (error) {
     console.log(error)
   }

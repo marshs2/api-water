@@ -6,7 +6,9 @@ let singleton = Symbol('singleton')
 let bcrypt = require('bcryptjs')
 class CryptoService {
   constructor (token) {
-    if (token !== singleton) { throw new Error('Cannot instantiate singleton class use classname.instance instead') }
+    if (token !== singleton) {
+      throw new Error('Cannot instantiate singleton class use classname.instance instead')
+    }
     this.init()
   }
   static get instance () {
@@ -29,7 +31,9 @@ class CryptoService {
         if (err) {
           reject(new Error('mismatch'))
         } else {
-          resolve({sucess: true})
+          resolve({
+            sucess: true
+          })
         }
       })
     })

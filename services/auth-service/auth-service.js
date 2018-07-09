@@ -46,11 +46,6 @@ class AuthService {
   }
 }
 
-AuthService.ALGORITHM = {
-  RS256: 'RS256',
-  DEFAULT: 'HMAC_SHA256'
-}
-
 // AuthService.instance.sign({
 //   data: {
 //     foo: 'bar'

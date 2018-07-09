@@ -183,6 +183,7 @@ client side password encryption -> Password -> hash+salt -> encrypt
 
 https://en.wikipedia.org/wiki/Cross-site_scripting -> XSS Attack
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
 
 4. Securing Rest api
 
@@ -199,6 +200,13 @@ https://kantarainitiative.org/confluence/display/uma/Home
 7. Sanitization
 looking for form content contains any maliculous code 
 ====
+
+8. Long Token
+1. used for remeber me/ long access token option
+
+9. Enable mutiple session
+
+
 
 Techniques for Security
 =============================
