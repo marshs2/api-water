@@ -1,0 +1,22 @@
+sample json form input -> back end get with body parser,cookie parser
+sample json form input -> back end get with body parser,cookie parser // completed
+index.js -> conf,server function in one file should be break down / modularised 
+jwt token service // completed
+custom middleware service for api input and header validation , request sanitization(jwt token validation, csrf token validation, xss validation)
+
+
+// login
+1.login logout -> cookie session
+2.cookie security session security
+3.persistent login
+
+======================
+2. cookie security session security
+
+server side session is encrypted and sent it to the client
+so browser cookie will have encrypted data . it can be read as it is
+session secret -> input appid-any-non-guessable-thing -> hashed value so cant be predictable
+hash+salt also we can use
+f(x) -> y
+x - unpredictable mostly
+======================

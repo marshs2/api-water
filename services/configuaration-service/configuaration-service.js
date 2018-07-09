@@ -37,15 +37,4 @@ class ConfiguarationManger {
   }
 }
 
-// var configManager = new ConfiguarationManger({
-//   filePath: './config/config.json'
-// })
-// configManager.init()
-// // console.log('SSSSS', configManager.getConfig('db:sql:keys:user'))
-// configManager.save().then(function (data) {
-//   console.log('data', data)
-// }).catch(function (error) {
-//   console.log('error', error)
-// })
-
 module.exports = ConfiguarationManger

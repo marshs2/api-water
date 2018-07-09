@@ -125,7 +125,8 @@ https://www.joyent.com/node-js/production/design/errors
 ### pm2 Useful commands
 pm2 start index.js
 pm2 show <id|name>` to get more details about an app
-
+pm2 start processes.json
+pm2 start app.js --watch
 
 ### Node Version Manager nvm
 
@@ -136,3 +137,106 @@ nvm install 6.1.0
 ### Debugging Node using nvm 
 Change your launch confog
 "runtimeExecutable": "/Users/ecom-s.prem/.nvm/versions/node/v8.11.3/bin/node"
+
+
+### code intellisense for our Library Format  ###
+
+..  For Object Datatypes and custom things follow this format  ..  
+/** @description Adds api routes and handler
+ * @param {} {Object} { path :'path_to_route' , callback : 'your_route_callback' }
+ * @return {null}
+ */
+
+..  For In Built Datatypes  follow this format   ..  
+
+ /** @description Adds api routes and handler
+ * @param {string} { path :'path_to_route' , callback : 'your_route_callback' }
+ * @return {string}
+ */
+
+ ### Login system security  ###
+
+https://stackoverflow.com/questions/549/the-definitive-guide-to-form-based-website-authentication
+
+1. CSRF attack prevention F/E B/E 
+https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
+Knowing Trusted site Url format and in maliculous site do some trusted site re direction script with Url.So if user 
+is already authenticated it gets compromised
+
+.... prevention steps ....
+
+CSRF token
+Referer Header
+
+https://stackoverflow.com/questions/5207160/what-is-a-csrf-token-what-is-its-importance-and-how-does-it-work
+
+
+---------------------
+
+
+2.SSL,HTTPS -> 
+
+client side password encryption -> Password -> hash+salt -> encrypt
+
+---------------------
+3.XSS attack prevention for cookie session 
+
+https://en.wikipedia.org/wiki/Cross-site_scripting -> XSS Attack
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+
+4. Securing Rest api
+
+https://medium.freecodecamp.org/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52
+
+5. Http Only cookie
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+
+6. Two-Factor Authentication and Authentication Providers
+http://openid.net/connect/
+https://kantarainitiative.org/confluence/display/uma/Home
+
+7. Sanitization
+looking for form content contains any maliculous code 
+====
+
+8. Long Token
+1. used for remeber me/ long access token option
+
+9. Enable mutiple session
+
+
+
+Techniques for Security
+=============================
+
+Authenticaton = user register/Login  ( Techniques -> hashing+salt ) (Develepment -> F/E & B/E)
+Authorisation = grant access to resource (Techniques -> Token JWT)  (Development -> B/E)
+CSRF Attack Prevention = csrf token + referrer header validation  (Development -> B/E & F/E)
+Access control allow origin list - "*.water.com" etc., (Development -> B/E)
+Http only cookie
+==============================
+
+Techniques for Logging
+==============================
+
+nginx - request id header for logging api errors 
+https://www.nginx.com/blog/application-tracing-nginx-plus/
+
+
+
+
+=================
+
+Headers 
+
+x-water-api-jwt // api authentication token
+x-water-csrf-token // csrf  Prevention
+X-Request-ID  // api logging nginx
+X-XSS-Protection: 1; mode=block // xss attack prevention 
+// nginx -> add_header "X-XSS-Protection" "1; mode=block"; Ref XSS attack 2nd link
+
+?? questions
+
+1. csutom middleware for api and other validation
