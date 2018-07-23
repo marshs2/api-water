@@ -45,6 +45,7 @@ class AuthService {
       } else if (_.includes(CONSTANTS.ALGORITHM, options.algorithm)) {
         reject(new Error(AUTH_EXCEPTION.UNKNOWN_ALGORITHM + options.algorithm))
       }
+      /* Private Key file signaturare */
       if (options.private_key) {
         let cert = fs.readFileSync(options.private_key)
         resolve(jwt.sign(options.data, cert, {
