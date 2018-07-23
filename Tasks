@@ -1,11 +1,15 @@
 sample json form input -> back end get with body parser,cookie parser
 sample json form input -> back end get with body parser,cookie parser // completed
-index.js -> conf,server function in one file should be break down / modularised 
+index.js -> conf,server function in one file should be break down // completed 
 jwt token service // completed
 custom middleware service for api input and header validation , request sanitization(jwt token validation, csrf token validation, xss validation)
 
+where to store token on client
+
+
 
 // login
+
 1.login logout -> cookie session
 2.cookie security session security
 3.persistent login
@@ -20,3 +24,14 @@ hash+salt also we can use
 f(x) -> y
 x - unpredictable mostly
 ======================
+
+cookie based vs token based authentication 
+
+1. token is best prepare token with self contained data 
+2. token based is scalable as it not stays in ram like session
+3. no need to send username,password through cookie each time //
+4. 
+=======
+Where to Store Tokens?
+With token-based auth, you are given the choice of where to store the JWT. Commonly, the JWT is placed in the browser's local storage and this works well for most use cases. There are some issues with storing JWTs in local storage to be aware of. Unlike cookies, local storage is sandboxed to a specific domain and its data cannot be accessed by any other domain including sub-domains.
+You can store the token in a cookie instead, but the max size of a cookie is only 4kb so that may be problematic if you have many claims attached to the token. Additionally, you can store the token in session storage which is similar to local storage but is cleared as soon as the user closes the browser.
