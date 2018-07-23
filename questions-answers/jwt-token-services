@@ -1,0 +1,10 @@
+1. is there any need to store token for future validation?
+    No.
+    
+2. Secret Key should not be in code. It should come from node command argument
+
+3.  what are the reason for invalidating user specific token for any reason ? // token invaidation params from db should be checked
+
+4. client assign the token from client if sees difference. Expiration will also be handled on client Side.
+
+5.
