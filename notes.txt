@@ -240,3 +240,30 @@ X-XSS-Protection: 1; mode=block // xss attack prevention
 ?? questions
 
 1. csutom middleware for api and other validation
+
+Token vs Session based Authenticaton
+
+https://auth0.com/docs/security/store-tokens
+https://dzone.com/articles/cookies-vs-tokens-the-definitive-guide
+
+
+prepare token with useridentity(guest | login-fb-google-mail | agency | user logedin | access control)
+guest -> no access to retrieve records 
+agency -> no access for user 
+
+
+.... etc
+
+
+1. api-token custom header send
+2. login-token custom header send
+3. access-token custom header send
+4. cookie-session used for tracking pages and other tracking related stuff
+
+ Matrix
+====================================================================
+ access_token  read_records
+====================================================================
+ user           
+ agency         
+ guest

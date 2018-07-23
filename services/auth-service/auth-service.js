@@ -20,6 +20,17 @@ class AuthService {
     }
     return this[singleton]
   }
+  verify (options) {
+    return new Promise(function (resolve, reject) {
+      jwt.verify(options.token, options.secret, function (err, decoded) {
+        if (err) {
+          reject(new Error(err))
+        } else {
+          resolve(decoded)
+        }
+      })
+    })
+  }
   sign (options) {
     return new Promise(function (resolve, reject) {
       if (!options.data) {
@@ -40,20 +51,10 @@ class AuthService {
           algorithm: options.algorithm
         }))
       } else {
-        resolve(jwt.sign(options.data, options.secret))
+        resolve(jwt.sign(options.data, options.secret, options.config))
       }
     })
   }
 }
 
-// AuthService.instance.sign({
-//   data: {
-//     foo: 'bar'
-//   },
-//   secret: 'secret'
-// }).then(function (data) {
-//   console.log('data', data)
-// }).catch(function (error) {
-//   console.log(error)
-// })
 module.exports = AuthService
