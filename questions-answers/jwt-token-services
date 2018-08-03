@@ -7,4 +7,7 @@
 
 4. client assign the token from client if sees difference. Expiration will also be handled on client Side.
 
-5.
+5. Anti CSRF Token needed for every senstive non get request.
+
+6. Referrer checking is needed
+
