@@ -24,6 +24,10 @@ const DB_EXCEPTION = require('./db-errors')
 // })
 
 class DBUtils {
+  /** @description DButils used for database connection and query utilisation
+ * @param {} {Object} { autoConnect :'true|false to connect during connection init' , config_scope : 'nconf object for env stuffs' }
+ * @return {null}
+ */
   constructor (options) {
     this.options = options
     if (this.options && this.options.autoConnect) {
@@ -33,11 +37,11 @@ class DBUtils {
     }
   }
   getConnectionString () {
-    let user = this.options.config.scope.getConfig('PGUSER') // process.env.PGUSER
-    let password = this.options.config.scope.getConfig('PGPASSWORD') // process.env.PGPASSWORD
-    let host = this.options.config.scope.getConfig('PGHOST') // process.env.PGHOST
-    let port = this.options.config.scope.getConfig('PGPORT') // process.env.PGPORT
-    let database = this.options.config.scope.getConfig('PGDATABASE') // process.env.PGDATABASE
+    let user = this.options.config_scope.getConfig('PGUSER')
+    let password = this.options.config_scope.getConfig('PGPASSWORD')
+    let host = this.options.config_scope.getConfig('PGHOST')
+    let port = this.options.config_scope.getConfig('PGPORT')
+    let database = this.options.config_scope.getConfig('PGDATABASE')
     let connectionString
 
     if (!user || !password || !host || !port || !database) {
@@ -51,6 +55,7 @@ class DBUtils {
     this.client = new Client({
       connectionString: this.getConnectionString()
     })
+    this.client.connect()
   }
   disConnect () {
     this.client.end()
@@ -61,11 +66,11 @@ class DBUtils {
   text: 'INSERT INTO users(name, email) VALUES($1, $2)',
   values: ['brianc', 'brian.m.carlson@gmail.com'],
    */
-  query (config, handler) {
-    this.client.query(config, handler)
+  query (query, handler) {
+    this.client.query(query, handler)
   }
-  queryPromise (config) {
-    return this.client(config)
+  queryPromise (query) {
+    return this.client.query(query)
   }
 }
 

@@ -206,6 +206,8 @@ looking for form content contains any maliculous code
 
 9. Enable mutiple session
 
+### Connect through SSH ###
+ssh -i ~/.ssh/wecan.pem ec2-user@13.127.170.233
 
 
 Techniques for Security

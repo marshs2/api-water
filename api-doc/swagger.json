@@ -122,14 +122,14 @@
              ]
           }
        },
-       "/water/findByStatus": {
+       "/water/can": {
           "get": {
              "tags": [
                 "water"
              ],
-             "summary": "Finds waters by status",
-             "description": "Multiple status values can be provided with comma separated strings",
-             "operationId": "findwatersByStatus",
+             "summary": "get default can option at initial",
+             "description": "Default value get route for can options",
+             "operationId": "can",
              "produces": [
                 "application/json",
                 "application/xml"
@@ -932,12 +932,16 @@
        "Tag": {
           "type": "object",
           "properties": {
-             "id": {
+             "quantity": {
                 "type": "integer",
                 "format": "int64"
              },
-             "name": {
+             "unit": {
                 "type": "string"
+             },
+             "defaultNumber": {
+                "type": "integer",
+                "format": "int64"
              }
           },
           "xml": {

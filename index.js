@@ -15,7 +15,14 @@ let bootstrapRoute = new RouteBootstrap()
 let Server = require('./services/server/server-service')
 let server = new Server()
 let serverConfig
-
+let DBUtils = require('./services/db-service/db-utils')
+let dbUtils
+const query = {
+  // give the query a unique name
+  name: 'fetch-user',
+  text: 'SELECT * FROM testtable'
+  // values: [1]
+}
 _.assign(configuaration, {
   componentRoutes: componentRoutes
 })
@@ -39,7 +46,6 @@ async function init () {
       config: config.data,
       config_scope: config.scope
     })
-    //console.log('config', config.scope.getConfig('NODE_ENV'))
     serverConfig = await server.initServer({
       port: configuaration.config_scope.getConfig('PORT') ||
         configuaration.config_scope.getConfig('server:default_port')

@@ -58,6 +58,6 @@ module.exports = {
   apps: [{
     name: 'api-water',
     script: './index.js',
-    watch: '.'
+    watch: true
   }]
 }
