@@ -98,7 +98,7 @@ PGDATABASE=postgres \
 PGPORT=5432 \
 NODE_ENV=development \
 NODE_HOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com \
-index.js
+node index.js
 
 ### Run using babel for async await support
 PGUSER=power_user \

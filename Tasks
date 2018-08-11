@@ -1,3 +1,22 @@
+10-August-2018
+
+middleware and back end agenda
+
+1. node sql utility class complete.
+2. db designer import to pgadmin and correct composite key.
+2. schema local and aws update.
+3. scripts for sql and api.
+4. Update api documentation after successful api method.
+5. How to do entity standards.
+6. Tell rule to rajkamal for db standards and import from dbdesigner.
+    # lowercase underscore rule
+    # dbdesigner create column and do in pgadmin
+
+-----------------
+
+
+
+
 sample json form input -> back end get with body parser,cookie parser
 sample json form input -> back end get with body parser,cookie parser // completed
 index.js -> conf,server function in one file should be break down // completed 

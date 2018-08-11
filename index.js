@@ -39,6 +39,7 @@ async function init () {
       config: config.data,
       config_scope: config.scope
     })
+    //console.log('config', config.scope.getConfig('NODE_ENV'))
     serverConfig = await server.initServer({
       port: configuaration.config_scope.getConfig('PORT') ||
         configuaration.config_scope.getConfig('server:default_port')

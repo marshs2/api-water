@@ -1,34 +1,48 @@
 const {
   Client
 } = require('pg')
+const DB_EXCEPTION = require('./db-errors')
 // const connectionString = 'postgres://power_user:poweruserpassword@ec2-13-127-170-233.ap-south-1.compute.amazonaws.com:5432/postgres'
 
 // const client = new Client({
 //   connectionString: connectionString
 // })
+// const query = {
+//   // give the query a unique name
+//   name: 'fetch-user',
+//   text: 'SELECT * FROM testtable'
+//   // values: [1]
+// }
 // client.connect()
 
-// client.query('SELECT * FROM testtable', (err, res) => {
+// client.query(query, (err, res) => {
 //   console.log(res.rows)
 //   client.end()
+//   if (err) {
+//     console.log(err)
+//   }
 // })
 
-class PostgresManager {
+class DBUtils {
   constructor (options) {
     this.options = options
-    if (this.options.autoConnect) {
+    if (this.options && this.options.autoConnect) {
       this.client = new Client({
         connectionString: this.getConnectionString()
       })
     }
   }
   getConnectionString () {
-    let user = this.options.config.getConfig('db:sql:keys:user')
-    let password = this.options.config.getConfig('db:sql:keys:password')
-    let host = this.options.config.getConfig('db:sql:keys:host')
-    let port = this.options.config.getConfig('db:sql:keys:port')
-    let database = this.options.config.getConfig('db:sql:keys:database')
+    let user = this.options.config.scope.getConfig('PGUSER') // process.env.PGUSER
+    let password = this.options.config.scope.getConfig('PGPASSWORD') // process.env.PGPASSWORD
+    let host = this.options.config.scope.getConfig('PGHOST') // process.env.PGHOST
+    let port = this.options.config.scope.getConfig('PGPORT') // process.env.PGPORT
+    let database = this.options.config.scope.getConfig('PGDATABASE') // process.env.PGDATABASE
     let connectionString
+
+    if (!user || !password || !host || !port || !database) {
+      throw Error(DB_EXCEPTION.DB_CONNECTION_ERROR.MESSAGE)
+    }
 
     connectionString = 'postgres://' + user + ':' + password + '@' + host + ':' + port + '/' + database
     return connectionString
@@ -37,6 +51,9 @@ class PostgresManager {
     this.client = new Client({
       connectionString: this.getConnectionString()
     })
+  }
+  disConnect () {
+    this.client.end()
   }
   /*
   Query config object methodolg
@@ -52,7 +69,4 @@ class PostgresManager {
   }
 }
 
-var obj=new PostgresManager();
-obj.
-
-//module.exports = PostgresManager
+module.exports = DBUtils
