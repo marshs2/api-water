@@ -19,6 +19,7 @@ let mockCanData = {
   upperBound: 10,
   lowerBound: 1
 }
+let _ = require('lodash')
 let BookingService = require('./booking-service')
 let bookingService
 class BookingModel {
@@ -27,11 +28,20 @@ class BookingModel {
     this.options = options
   }
   getCanData (request, response) {
-    response.json(mockCanData)
-    // bookingService.getInitialCanData().then(res => {
-    //   response.json(res.rows[0])
-    //   bookingService.disConnect()
-    // }).catch(e => console.error(e.stack))
+    // response.json(mockCanData)
+
+    bookingService.getInitialCanData().then(res => {
+      let defaultCanOptions = _.filter(res.rows, function (o) { return o.is_default })
+      response.json({canOptions: res.rows,
+        defaultCanOption: defaultCanOptions,
+        emergencyBooking: false,
+        upperBound: 10,
+        lowerBound: 1 })
+      bookingService.disConnect()
+    }).catch(e => {
+      console.error(e.stack)
+      bookingService.disConnect()
+    })
   }
 }
 

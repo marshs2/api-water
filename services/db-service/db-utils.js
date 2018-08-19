@@ -45,7 +45,8 @@ class DBUtils {
     let connectionString
 
     if (!user || !password || !host || !port || !database) {
-      throw Error(DB_EXCEPTION.DB_CONNECTION_ERROR.MESSAGE)
+      console.log(this.options)
+      throw Error(DB_EXCEPTION.DB_CONNECTION_ERROR.MESSAGE + user + ',' + password + ',' + process.env.PGUSER)
     }
 
     connectionString = 'postgres://' + user + ':' + password + '@' + host + ':' + port + '/' + database

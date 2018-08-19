@@ -127,6 +127,8 @@ pm2 start index.js
 pm2 show <id|name>` to get more details about an app
 pm2 start processes.json
 pm2 start app.js --watch
+pm2 restart app
+pm2 list
 
 ### Node Version Manager nvm
 

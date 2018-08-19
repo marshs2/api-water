@@ -7,8 +7,8 @@ class BookingService extends DBUtils {
   getInitialCanData () {
     let query = {
       // give the query a unique name
-      name: 'fetch-user',
-      text: 'SELECT * FROM testtable'
+      name: 'fetch-can',
+      text: 'SELECT can_id, company_id, can_type, units, is_default, default_value FROM public.can INNER JOIN units ON public.can.units_id = public.units.units_id;'
       // values: [1]
     }
     super.connect()

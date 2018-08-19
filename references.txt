@@ -74,3 +74,8 @@ https://scotch.io/tutorials/easy-node-authentication-setup-and-local
 
 ### Node with postgres framework ###
 https://node-postgres.com/features/queries
+
+
+### Database Best Practise ###
+
+https://www.guru99.com/database-normalization.html
