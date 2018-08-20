@@ -1,0 +1,13 @@
+Sql doubts
+---------------
+
+how to insert value which is linked as forign key
+first foreign then local or make forign key as null which onwe is best
+table 1 referencing table2 fkey <-> table2 referencing table1 fkey makes error on insert either side. what is best practises?
+
+solution
+----------
+
+1. when insertion happens ensure to update the primary key value first then update the foreign key otherwise referntial integrity problem may occur.
+   [primary key first -> foreign key next]
+2.    

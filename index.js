@@ -63,19 +63,29 @@ init()
  */
 process.on('SIGINT', () => {
   console.info('SIG INT RECEIVED')
-  server.close((err) => {
-    if (err) {
-      console.log('Exit Error', err)
-      process.exit(1)
+  try {
+    if (server._handle != null) {
+      server.close((err) => {
+        if (err) {
+          console.log('Exit Error', err)
+          process.exit(1)
+        }
+      })
     }
-  })
+  } catch (e) {
+    console.error(e)
+  }
 })
 process.on('message', (msg) => {
-  if (msg === 'shutdown') {
-    console.log('Closing all connections...')
-    setTimeout(() => {
-      console.log('Finished closing connections')
-      process.exit(0)
-    }, 1500)
+  try {
+    if (msg === 'shutdown') {
+      console.log('Closing all connections...')
+      setTimeout(() => {
+        console.log('Finished closing connections')
+        process.exit(0)
+      }, 1500)
+    }
+  } catch (e) {
+    console.error(e)
   }
 })

@@ -98,7 +98,19 @@ PGDATABASE=postgres \
 PGPORT=5432 \
 NODE_ENV=development \
 NODE_HOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com \
-index.js
+node index.js
+
+
+#### run using node forever
+
+PGUSER=power_user \
+PGHOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com \
+PGPASSWORD=poweruserpassword \
+PGDATABASE=postgres \
+PGPORT=5432 \
+NODE_ENV=development \
+NODE_HOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com \
+forever start index.js
 
 ### Run using babel for async await support
 PGUSER=power_user \
@@ -127,6 +139,8 @@ pm2 start index.js
 pm2 show <id|name>` to get more details about an app
 pm2 start processes.json
 pm2 start app.js --watch
+pm2 restart app
+pm2 list
 
 ### Node Version Manager nvm
 
@@ -206,6 +220,8 @@ looking for form content contains any maliculous code
 
 9. Enable mutiple session
 
+### Connect through SSH ###
+ssh -i ~/.ssh/wecan.pem ec2-user@13.127.170.233
 
 
 Techniques for Security

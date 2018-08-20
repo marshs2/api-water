@@ -71,3 +71,11 @@ https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 ### Login System
 https://classroom.udacity.com/courses/ud171/lessons/7615659824/concepts/486736220923
 https://scotch.io/tutorials/easy-node-authentication-setup-and-local
+
+### Node with postgres framework ###
+https://node-postgres.com/features/queries
+
+
+### Database Best Practise ###
+
+https://www.guru99.com/database-normalization.html

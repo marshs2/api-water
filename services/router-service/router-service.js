@@ -19,7 +19,7 @@ class RouterService {
  * @return {null}
  */
   addMiddleWare (middleware) {
-    if (_.get(middleware, 'path') && _.get(middleware, 'callback')) {
+    if (_.has(middleware, ['path', 'callback'])) {
       router.use(middleware.path, middleware.callback)
     } else if (_.get(middleware, 'callback')) {
       router.use(middleware.callback)
@@ -38,10 +38,10 @@ class RouterService {
  * @return {null}
  */
   addRouter (routerConfig) {
-    if (_.get(routerConfig, 'path') && _.get(routerConfig, 'callback')) {
-      router.use(routerConfig.path, routerConfig.callback)
-    } else if (_.get(routerConfig, 'callback')) {
-      router.use(routerConfig.callback)
+    if (_.has(routerConfig, 'path') && _.has(routerConfig, 'callback') && _.has(routerConfig, 'method')) {
+      router[routerConfig.method](routerConfig.path, routerConfig.callback)
+    } else {
+      throw new Error('Either Path | callback | method is missing in arguments')
     }
   }
 }

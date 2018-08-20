@@ -1,27 +1,40 @@
 let mockCanData = {
   canOptions: [{
-    type: 10,
+    quantity: 10,
     defaultNumber: 3,
-    units: 'litres'
+    unit: 'litres'
   },
   {
-    type: 10,
-    defaultNumber: 3,
-    units: 'litres'
+    quantity: 25,
+    defaultNumber: 2,
+    unit: 'litres'
   }
   ],
-  defaultOption: {
-    type: '25',
-    units: 'litres',
+  defaultCanOption: {
+    quantity: '25',
+    unit: 'litres',
     defaultNumber: 2
-  }
+  },
+  emergencyBooking: false,
+  upperBound: 10,
+  lowerBound: 1
 }
+let _ = require('lodash')
+let BookingService = require('./booking-service')
+let bookingService
 class BookingModel {
   constructor (options) {
+    bookingService = new BookingService(options)
     this.options = options
   }
-  getCanData (req, res) {
-    res.json(mockCanData)
+  getCanData (request, response) {
+    // response.json(mockCanData)
+
+    bookingService.getInitialCanData().then(data => {
+      response.json(data)
+    }).catch(e => {
+      console.error(e)
+    })
   }
 }
 
