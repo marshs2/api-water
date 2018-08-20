@@ -30,17 +30,10 @@ class BookingModel {
   getCanData (request, response) {
     // response.json(mockCanData)
 
-    bookingService.getInitialCanData().then(res => {
-      let defaultCanOptions = _.filter(res.rows, function (o) { return o.is_default })
-      response.json({canOptions: res.rows,
-        defaultCanOption: defaultCanOptions,
-        emergencyBooking: false,
-        upperBound: 10,
-        lowerBound: 1 })
-      bookingService.disConnect()
+    bookingService.getInitialCanData().then(data => {
+      response.json(data)
     }).catch(e => {
-      console.error(e.stack)
-      bookingService.disConnect()
+      console.error(e)
     })
   }
 }
