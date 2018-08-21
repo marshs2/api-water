@@ -4,8 +4,17 @@ It uses pm2 for node app start,watch and other feautures
 To start app use following command
 ---------------
 
+Development
+
 nvm install --lts
 pm2 start ecosystem.config.js
+
+Production
+
+nvm install --lts
+pm2 start ecosystem.config.js --env production.
+
+
 
 Path to all pm2 logs 
 ---------------
