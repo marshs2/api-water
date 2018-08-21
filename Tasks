@@ -1,9 +1,23 @@
 20-August-2018
 =================
-1. check for pm2 node environment variables undefinde or look for node forever all commands 
+1. check for pm2 node environment variables undefinde or look for node forever all commands // done with forever
 
 
 ==================
+
+21-august-2018
+
+1. Error handling node js best practise and implemenation generally & winston  logger
+2. forever check for restart app on crash
+3. split component specific errors and common errors
+
+======
+
+22-august-2018
+
+
+
+
 10-August-2018
 
 middleware and back end agenda

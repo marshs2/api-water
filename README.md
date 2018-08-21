@@ -11,7 +11,21 @@ pm2 stop <app_name>
 
 PGUSER=power_user PGHOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com PGPASSWORD=poweruserpassword PGDATABASE=postgres PGPORT=5432 NODE_ENV=development NODE_HOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com pm2 start index.js
 
-PGUSER=power_user PGHOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com PGPASSWORD=poweruserpassword PGDATABASE=postgres PGPORT=5432 NODE_ENV=development NODE_HOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com pm2 start index.js
+Use Forever to start node app
+---------------
+
+PGUSER=power_user PGHOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com PGPASSWORD=poweruserpassword PGDATABASE=postgres PGPORT=5432 NODE_ENV=development NODE_HOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com forever -l start index.js
+
+Use forever to kill node process
+---------------
+forever list
+forever stop process_id
+
+Kill node app using following command
+---------------
+ps aux | grep node
+kill -9 process_id
+
 
 Node Version 
 ---------------
@@ -25,3 +39,8 @@ Swagger is used for Api documentation. Please Refer the docs below for detailed 
 npm i swagger-ui-express -S
 
 https://blog.cloudboost.io/adding-swagger-to-existing-node-js-project-92a6624b855b
+
+
+Connect Terminal to aws
+------------------
+ssh -i ~/.ssh/wecan.pem ec2-user@13.127.170.233
