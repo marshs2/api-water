@@ -1,6 +1,34 @@
 # api-water
 It uses pm2 for node app start,watch and other feautures
 
+To start app use following command
+---------------
+
+nvm install --lts
+pm2 start ecosystem.config.js
+
+Path to all pm2 logs 
+---------------
+/home/ec2-user/.pm2/logs
+
+List all apps using pm2
+---------------
+pm2 list
+
+Stop node using pm2 command
+---------------
+
+pm2 stop app_name|id
+
+Restart node using pm2
+---------------
+
+pm2 restart appname|id
+
+Refer any pm2 related app running information
+---------------
+http://pm2.keymetrics.io/docs/usage/environment/
+
 Start app using command
 
 pm2 start processes.json
