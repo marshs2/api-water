@@ -294,3 +294,27 @@ agency -> no access for user
  user           
  agency         
  guest
+
+
+##########
+
+Code Comments to get intellisense about params. Add this to beginning of any function
+
+/** @description Adds options for different level of logging
+ * @param {} {Object} { transports: {
+    file: [{
+      level: 'info',
+      filename: 'your_info_file_path.log'
+    }, {
+      level: 'error',
+      filename: 'your_error_file_path.log'
+    }]
+  },
+  isDailyRotate: true
+
+}
+ * @return {null}
+ */
+
+ ##############
+
