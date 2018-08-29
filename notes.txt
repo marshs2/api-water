@@ -100,6 +100,16 @@ NODE_ENV=development \
 NODE_HOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com \
 node index.js
 
+###
+
+PGUSER=power_user \
+PGHOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com \
+PGPASSWORD=poweruserpassword \
+PGDATABASE=postgres \
+PGPORT=5432 \
+NODE_ENV=development \
+NODE_HOST=ec2-13-127-170-233.ap-south-1.compute.amazonaws.com \
+pm2 start index.js
 
 #### run using node forever
 
@@ -141,6 +151,7 @@ pm2 start processes.json
 pm2 start app.js --watch
 pm2 restart app
 pm2 list
+pm2 stop app_name
 
 ### Node Version Manager nvm
 
@@ -283,3 +294,27 @@ agency -> no access for user
  user           
  agency         
  guest
+
+
+##########
+
+Code Comments to get intellisense about params. Add this to beginning of any function
+
+/** @description Adds options for different level of logging
+ * @param {} {Object} { transports: {
+    file: [{
+      level: 'info',
+      filename: 'your_info_file_path.log'
+    }, {
+      level: 'error',
+      filename: 'your_error_file_path.log'
+    }]
+  },
+  isDailyRotate: true
+
+}
+ * @return {null}
+ */
+
+ ##############
+

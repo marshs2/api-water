@@ -1,9 +1,29 @@
 20-August-2018
 =================
-1. check for pm2 node environment variables undefinde or look for node forever all commands 
+1. check for pm2 node environment variables undefinde or look for node forever all commands // done with forever
 
 
 ==================
+
+21-august-2018
+
+https://github.com/Unitech/pm2/issues/2302 - progress for watch not working
+Tried below need to check why restaring
+ ----------
+$ npm install pm2@next -g
+$ pm2-dev start ecosystem.json
+
+======
+
+22-august-2018
+
+progress for pm2 watch not working ?
+
+1. Error handling node js best practise and implemenation generally & winston  logger
+2. forever check for restart app on crash
+3. split component specific errors and common errors
+
+
 10-August-2018
 
 middleware and back end agenda

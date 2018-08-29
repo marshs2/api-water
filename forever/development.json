@@ -1,0 +1,7 @@
+{
+    "uid": "api-water",
+    "append": true,
+    "watch": true,
+    "script": "index.js",
+    "sourceDir": "./"
+}

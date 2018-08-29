@@ -1,0 +1,31 @@
+{
+    "canOptions": [
+        {
+            "can_id": 1,
+            "company_id": null,
+            "can_type": 25,
+            "units": "litres",
+            "is_default": true,
+            "default_value": 2
+        },
+        {
+            "can_id": 2,
+            "company_id": null,
+            "can_type": 10,
+            "units": "litres",
+            "is_default": false,
+            "default_value": 2
+        }
+    ],
+    "defaultCanOption": {
+        "can_id": 1,
+        "company_id": null,
+        "can_type": 25,
+        "units": "litres",
+        "is_default": true,
+        "default_value": 2
+    },
+    "emergency_booking": false,
+    "upper_bound": 10,
+    "lower_bound": 1
+}

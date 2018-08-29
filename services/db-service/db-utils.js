@@ -45,7 +45,7 @@ class DBUtils {
     let connectionString
 
     if (!user || !password || !host || !port || !database) {
-      console.log(this.options)
+      console.log('env', process.env)
       throw Error(DB_EXCEPTION.DB_CONNECTION_ERROR.MESSAGE + user + ',' + password + ',' + process.env.PGUSER)
     }
 
