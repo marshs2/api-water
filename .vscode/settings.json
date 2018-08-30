@@ -1,5 +1,30 @@
 {
     //"pgsql.connection": "postgres://postgres:prem123@localhost:5432/test_db"
-    "pgsql.connection": "postgres://power_user:poweruserpassword@ec2-13-127-170-233.ap-south-1.compute.amazonaws.com:5432/postgres"
+    "pgsql.connection": "postgres://power_user:poweruserpassword@ec2-13-127-170-233.ap-south-1.compute.amazonaws.com:5432/postgres",
+    "node-module-intellisense.autoStripExtensions": [
+    ".js",
+    ".jsx",
+    ".ts",
+    ".d.ts",
+    ".tsx"
+  ],
+
+  // Module Paths to scan. Use ${workspaceRoot} for workspace lookup.
+  "node-module-intellisense.modulePaths": [],
+
+  // Scans builtin modules as well
+  "node-module-intellisense.scanBuiltinModules": true,
+
+  // Scans devDependencies as well
+  "node-module-intellisense.scanDevDependencies": true,
+
+  // Scans file modules as well
+  "node-module-intellisense.scanFileModules": true,
+
+  // A path added to NODE_PATH when resolving the standard module.
+  "standard.nodePath": null,
+
+  // shows build in node modules like 'path' of 'fs'
+  "npm-intellisense.showBuildInLibs": false
 
 }
