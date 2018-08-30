@@ -4,6 +4,7 @@ var options = {
     file: [{
       level: 'info',
       filename: 'newinfo1.log'
+
     }, {
       level: 'error',
       filename: 'newerror1.log'
