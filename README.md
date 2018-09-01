@@ -34,9 +34,6 @@ For pm2 related things Please refer the follwing link
 ---------------
 http://pm2.keymetrics.io/docs/usage/environment/
 
-Start app using command
----------------
-pm2 start processes.json
 
 stop app using command
 ---------------
