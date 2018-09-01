@@ -46,6 +46,7 @@ class LoggerService {
         transports.push(new winston.transports[currentTransport](currentTransportOptions))
       })
     })
+    
     this.logger = winston.createLogger({
       transports: transports,
       levels: constants.levels,

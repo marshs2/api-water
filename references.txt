@@ -27,6 +27,7 @@ https://www.codementor.io/mattgoldspink/nodejs-best-practices-du1086jja
 https://www.terlici.com/2014/08/25/best-practices-express-structure.html //yet to read
 https://github.com/i0natan/nodebestpractices
 
+
 ### Style Guide Javascript 
 https://google.github.io/styleguide/javascriptguide.xml
 
@@ -79,3 +80,7 @@ https://node-postgres.com/features/queries
 ### Database Best Practise ###
 
 https://www.guru99.com/database-normalization.html
+
+### NGINX Logging Http Request
+
+https://www.nginx.com/blog/application-tracing-nginx-plus/
