@@ -318,3 +318,15 @@ Code Comments to get intellisense about params. Add this to beginning of any fun
 
  ##############
 
+Postgress Sql restart
+#######################
+
+sudo service postgresql restart
+
+List Out Postgress sql connection
+----------------------
+ps aux | grep postgres
+
+To Kill process
+----------------------
+Sudo Kill process_id

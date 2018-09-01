@@ -1,7 +1,8 @@
 
 var DBUtils = require('../../services/db-service/db-utils')
-let _ = require('lodash')
+const _ = require('lodash')
 const ERRORS = require('./errors')
+const CONSTANTS = require('./constants')
 class BookingService extends DBUtils {
   constructor (options) {
     super(options)
@@ -9,6 +10,7 @@ class BookingService extends DBUtils {
   }
   getInitialCanData () {
     let self = this
+    let bookingData
     let query = {
       // give the query a unique name
       name: 'fetch-can',
@@ -22,7 +24,9 @@ class BookingService extends DBUtils {
           self.disConnect()
           reject(new Error(ERRORS.EMPTY_RECORDS.MESSAGE))
         }
-        resolve(self.computeDefaultCanData(data))
+        bookingData = self.computeDefaultCanData(data)
+        self.disConnect()
+        resolve(bookingData)
       }).catch(e => {
         self.disConnect()
         reject(e.stack)
@@ -34,9 +38,9 @@ class BookingService extends DBUtils {
     let defaultCanOptions = _.find(data.rows, function (row) { return row.is_default })
     let json = {canOptions: data.rows,
       defaultCanOption: defaultCanOptions,
-      emergency_booking: false,
-      upper_bound: 10,
-      lower_bound: 1 }
+      emergency_booking: CONSTANTS.DEFAULT_EMERGENCY_BOOKING,
+      upper_bound: CONSTANTS.UPPER_BOUND,
+      lower_bound: CONSTANTS.LOWER_BOUND }
     return json
   }
 

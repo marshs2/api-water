@@ -1,3 +1,24 @@
+30-august-2018
+==================
+Rest Api Error Handling general overview.
+Express error handling.
+Program errors + operational errors logging using winston
+Logging Service should be singleton so needed component should inject without passing reference
+
+1-sep-2018
+
+Idea Arrived
+-------------
+Resolve error in running node app
+Change Router argument with next callback support to handle router errors at middle ware injection level.
+Express error middleware router should be implemented and winston logger should be logged there.
+Prepare shell script for all commands sequence.[to install and run program]
+Study nginx request-id logger for http and application tracking.
+Update swagger documentation for completed model.
+
+
+
+
 20-August-2018
 =================
 1. check for pm2 node environment variables undefinde or look for node forever all commands // done with forever
