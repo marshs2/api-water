@@ -1,6 +1,6 @@
 /*  This is a route script defines all routes and connect to model
 */
-let path = require('path')
+const path = require('path')
 let RouterService = require('../../services/router-service/router-service')
 let routerService = new RouterService()
 let SignupLoginApi = require(path.join(__dirname, 'signup-login-api.js'))

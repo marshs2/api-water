@@ -4,7 +4,7 @@
    Only web layer logic presents here and context object preparation based on requested resource goes here
    Because passing express to Bussiness Logic breaks the testing of bussiness logic code.
 */
-let path = require('path')
+const path = require('path')
 let SignUpLoginRoutes = require(path.join(__dirname, 'signup-login-routes.js'))
 let signupLoginRoutes
 

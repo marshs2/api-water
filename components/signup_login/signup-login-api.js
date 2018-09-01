@@ -12,8 +12,8 @@ class SignUpLoginAPI extends SignUpLoginModel {
     this.options = options
   }
   validateGoogle (request, response, next) {
-    this.setHeader(response, defaultHeaders)
     super.validateGoogle().then(data => {
+      this.setHeader(response, defaultHeaders)
       response.send(data)
       return next()
     }).catch(error => {
@@ -21,9 +21,9 @@ class SignUpLoginAPI extends SignUpLoginModel {
     })
   }
   setHeader (response, headers) {
-    _.forEach(headers, (headerValue, headerKey) => {
-      response.setHeader(headerKey, headerValue)
-    })
+    // _.forEach(headers, (headerValue, headerKey) => {
+    //   response.setHeader(headerKey, headerValue)
+    // })
     // response.setHeader('Access-Control-Allow-Origin', '*')
     // response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE') // If needed
     // response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type') // If needed
