@@ -4,8 +4,11 @@ It uses pm2 for starting node app.
 
 To start app go to scripts folder and type the following command
 ---------------
-
-sudo sh start-node-dev.sh
+For development
+sudo sh start-node-dev.sh 
+For staging
+sudo sh start-node-stg.sh 
+For production
 sudo sh start-node-prod.sh
 
 Aws Path to all pm2 logs 
