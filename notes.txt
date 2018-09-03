@@ -330,3 +330,13 @@ ps aux | grep postgres
 To Kill process
 ----------------------
 Sudo Kill process_id
+
+Tar File Excluding 
+----------------------
+tar cfvz api-water.tgz --exclude='node_modules' --exclude='**/node_modules'--exclude='.git' --exclude='.gitignore' api-water
+tar cfvz test-deploy.tgz --exclude='node_modules' --exclude='**/node_modules'--exclude='.git' --exclude='.gitignore' test-deploy
+
+NPM commands
+----------------------
+npm cache clear --force
+

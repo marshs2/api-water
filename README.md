@@ -5,10 +5,13 @@ It uses pm2 for starting node app.
 To start app go to scripts folder and type the following command
 ---------------
 For development
+---------------
 sudo sh start-node-dev.sh 
 For staging
+---------------
 sudo sh start-node-stg.sh 
 For production
+---------------
 sudo sh start-node-prod.sh
 
 Aws Path to all pm2 logs 
@@ -31,9 +34,6 @@ For pm2 related things Please refer the follwing link
 ---------------
 http://pm2.keymetrics.io/docs/usage/environment/
 
-Start app using command
----------------
-pm2 start processes.json
 
 stop app using command
 ---------------
@@ -62,6 +62,7 @@ https://blog.cloudboost.io/adding-swagger-to-existing-node-js-project-92a6624b85
 Connect Terminal to aws ec2 instance
 ------------------
 ssh -i ~/.ssh/wecan.pem ec2-user@13.127.170.233
+Note: Make Sure the Key file permission is 0644. Otherwise it won't work.
 
 To List Out Postgress process in aws linux ec2 instance use following command
 ----------------------
@@ -75,3 +76,11 @@ To Restart Postgres service in aws run the following command
 ----------------------
 sudo service postgresql restart
 
+Build Automation
+----------------------
+Tar folders except node modules
+tranfer folder src path dst path manually or command
+extract folder from remote dst path
+start build and run script
+
+scp -i wecan.pem /users/me/path-to-file ec2-user@ec2-13-127-170-233.ap-south-1.compute.amazonaws.com:~

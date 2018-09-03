@@ -1,4 +1,4 @@
-
+/* Booking Service is used for DataAccessLayer logic like pulling data from db */
 var DBUtils = require('../../services/db-service/db-utils')
 const _ = require('lodash')
 const ERRORS = require('./errors')
