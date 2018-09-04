@@ -78,9 +78,4 @@ sudo service postgresql restart
 
 Build Automation
 ----------------------
-Tar folders except node modules
-tranfer folder src path dst path manually or command
-extract folder from remote dst path
-start build and run script
-
-scp -i wecan.pem /users/me/path-to-file ec2-user@ec2-13-127-170-233.ap-south-1.compute.amazonaws.com:~
+Run build-deploy-automation.sh with wecan.pem file in the same direcory your run to deploy git repo to aws 
