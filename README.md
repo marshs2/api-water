@@ -78,4 +78,4 @@ sudo service postgresql restart
 
 Build Automation
 ----------------------
-Run build-deploy-automation.sh with wecan.pem file in the same direcory your run to deploy git repo to aws 
+Run build-deploy-automation.sh with wecan.pem file in the same direcory you run to deploy git repo to aws 
