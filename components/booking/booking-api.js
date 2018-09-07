@@ -12,6 +12,12 @@ class BookingAPI extends BookingModel {
     super(options)
     this.options = options
   }
+  /**
+   * @description Booking model web layer handler for getting initial can data on application load
+   * @param {*} request
+   * @param {*} response
+   * @param {*} next
+   */
   getCanData (request, response, next) {
     super.getCanData().then(data => {
       response.json(data)

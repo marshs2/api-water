@@ -9,6 +9,9 @@ class BookingRoutes {
     this.options = options
     bookingAPI = new BookingAPI(options)
   }
+  /**
+   * @description This method is used to add endpoints to all booking model components
+   */
   initRoutes () {
     try {
       routerService.addRouter({path: '/cans', method: 'get', callback: bookingAPI.getCanData.bind(bookingAPI)})
@@ -16,6 +19,11 @@ class BookingRoutes {
       throw new Error(ERRORS.ROUTER_INIT_ERROR)
     }
   }
+  /**
+   * @description returns Registered Routes of booking module
+   * @param {null}
+   * @return {express registered router}
+   */
   getRouter () {
     return routerService.getRouter()
   }

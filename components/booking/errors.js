@@ -1,3 +1,7 @@
+/**
+/ *
+    Booking Model Error Configuaration File contains list os error related to booking model component.
+ */
 const ERRORS = {
   EMPTY_RECORDS: {
     CODE: 1,
