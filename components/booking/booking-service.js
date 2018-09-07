@@ -8,6 +8,9 @@ class BookingService extends DBUtils {
     super(options)
     this.options = options
   }
+  /** @description This method is used to fetch all possible can data from can table
+   *
+   */
   getInitialCanData () {
     let self = this
     let bookingData
@@ -33,7 +36,10 @@ class BookingService extends DBUtils {
       })
     })
   }
-
+  /** @description This method merge can default configuartion from code constants to refined can data obtained from can table
+   *
+   * @param {*} data {record result of joined can + unit table}
+   */
   computeDefaultCanData (data) {
     let defaultCanOptions = _.find(data.rows, function (row) { return row.is_default })
     let json = {canOptions: data.rows,
@@ -43,7 +49,9 @@ class BookingService extends DBUtils {
       lower_bound: CONSTANTS.LOWER_BOUND }
     return json
   }
-
+  /** @description disconnect postgreesql server connection
+   *
+   */
   disConnect () {
     super.disConnect()
   }

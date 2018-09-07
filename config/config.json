@@ -35,5 +35,21 @@
       "database": "Not_decided",
       "host": "ec2-13-127-170-233.ap-south-1.compute.amazonaws.com"
     }
+  },
+  "logger":{
+    "options" : {
+      "transports": {
+        "file": [{
+          "level": "info",
+          "filename": "./logging-results/api-water-info.log"
+    
+        }, {
+          "level": "error",
+          "filename": "./logging-results/api-water-info.log"
+        }]
+      },
+      "isDailyRotate": true
+    
+    }
   }
 }

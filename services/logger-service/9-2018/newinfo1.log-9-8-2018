@@ -1,0 +1,16 @@
+{ level: '\u001b[32minfo\u001b[39m',
+  message: '1hello',
+  label: 'default label',
+  timestamp: '2018-09-08T00:30:18+05:30' }
+{ level: '\u001b[31merror\u001b[39m',
+  message: '1hello',
+  label: 'default label',
+  timestamp: '2018-09-08T00:30:18+05:30' }
+{ level: '\u001b[32minfo\u001b[39m',
+  message: '1hello',
+  label: 'default label',
+  timestamp: '2018-09-08T00:36:12+05:30' }
+{ level: '\u001b[31merror\u001b[39m',
+  message: '1hello',
+  label: 'default label',
+  timestamp: '2018-09-08T00:36:12+05:30' }
