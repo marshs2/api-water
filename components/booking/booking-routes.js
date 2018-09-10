@@ -2,7 +2,7 @@
 let RouterService = require('../../services/router-service/router-service')
 let routerService = new RouterService()
 let bookingAPI
-const ERRORS = require('./errors')
+const ERRORS = require('./booking-errors')
 let BookingAPI = require('./booking-api')
 class BookingRoutes {
   constructor (options) {

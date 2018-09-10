@@ -1,8 +1,8 @@
 /* Booking Service is used for DataAccessLayer logic like pulling data from db */
 var DBUtils = require('../../services/db-service/db-utils')
 const _ = require('lodash')
-const ERRORS = require('./errors')
-const CONSTANTS = require('./constants')
+const ERRORS = require('./booking-errors')
+const CONSTANTS = require('./booking-constants')
 class BookingService extends DBUtils {
   constructor (options) {
     super(options)

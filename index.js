@@ -15,6 +15,8 @@ let bootstrapRoute = new RouteBootstrap()
 let Server = require('./services/server/server-service')
 let server = new Server()
 let serverConfig
+let MWLoggerService = require('./services/mw-logger-service/mw-logger-service')
+let mwLoggerService
 
 _.assign(configuaration, {
   componentRoutes: componentRoutes
@@ -35,6 +37,7 @@ async function init () {
 
   try {
     config = await initConfiguaration(configPath)
+    mwLoggerService = new MWLoggerService(config.data.logger)
     _.assign(configuaration, {
       config: config.data,
       config_scope: config.scope
@@ -48,7 +51,7 @@ async function init () {
       express: serverConfig.express,
       app: serverConfig.app
     })
-
+    serverConfig.app.use(mwLoggerService.errorHandler())
     await bootstrapRoute.initComponentRoutes(configuaration)
   } catch (error) {
     console.log(error)
