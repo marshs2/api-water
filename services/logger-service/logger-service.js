@@ -10,6 +10,7 @@ const moment = require('moment-timezone')
 const _ = require('lodash')
 const constants = require('./logger-constants')
 const fs = require('fs')
+const ERRORS = require('./logger-errors')
 class LoggerService {
   /** @description Adds options for different level of logging
  * @param {} {Object} { transports: {
@@ -27,6 +28,9 @@ class LoggerService {
  * @return {null}
  */
   constructor (options) {
+    if (!options) {
+      throw new Error(ERRORS.CONSTRUCTOR_ARGUMENTS_CANNOT_NULL.MESSAGE)
+    }
     this.options = options
     this.createLogger()
   }

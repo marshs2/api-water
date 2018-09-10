@@ -8,7 +8,8 @@ let bookingRoutes
 let apiPrefix = '/api/v1'
 /**
  * @description Booking Model root script for registering routes with component bussiness logic , Web Layer Interface and Data Access Layer
- * @param {*} options {}
+ * @param {*} options { config : containg app config+env data object of nconf , config_scope : nconf wrapper scope for maniupulating config+env object
+ * , }
  */
 function init (options) {
   bookingRoutes = new BookingRoutes(options)

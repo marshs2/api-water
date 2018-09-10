@@ -35,8 +35,8 @@ function test(){
 
 $(document).ready(function(){
   $('#submit').click(function(){
-    
-    $.post("http://localhost:3000/testpost",{user:$('#username').val()},function(data){
+    let url = "http://localhost:3000/api/v1/cans"
+    $.get(url,function(data){
       console.log("data",data);
     })
   })

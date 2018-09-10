@@ -4,7 +4,7 @@ module.exports = {
       name: 'api-water',
       script: './index.js',
       watch: true,
-      env: {
+      env_development: {
         'PORT': 3000,
         'NODE_ENV': 'development',
         'NODE_HOST': 'ec2-13-127-170-233.ap-south-1.compute.amazonaws.com',
