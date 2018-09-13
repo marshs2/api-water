@@ -1,4 +1,0 @@
-{ level: '\u001b[31merror\u001b[39m',
-  message: '1hello',
-  label: 'default label',
-  timestamp: '2018-09-08T00:39:31+05:30' }

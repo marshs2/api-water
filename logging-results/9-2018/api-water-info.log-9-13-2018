@@ -1,0 +1,24 @@
+{ level: 'info',
+  message: Error: throwing error..
+    at getCanData.then.data (/Users/ecom-s.prem/Documents/test_ws/practise/api-water/components/booking/booking-api.js:25:13)
+    at <anonymous>
+    at process._tickDomainCallback (internal/process/next_tick.js:229:7),
+  label: 'default label',
+  timestamp: '2018-09-13T23:24:27+05:30',
+  [Symbol(level)]: 'info' }
+{ level: 'info',
+  message: Error: [object Object]
+    at getCanData.then.data (/Users/ecom-s.prem/Documents/test_ws/practise/api-water/components/booking/booking-api.js:25:13)
+    at <anonymous>
+    at process._tickDomainCallback (internal/process/next_tick.js:229:7),
+  label: 'default label',
+  timestamp: '2018-09-13T23:25:41+05:30',
+  [Symbol(level)]: 'info' }
+{ level: 'info',
+  message: Error: {"dude":"hi"}
+    at getCanData.then.data (/Users/ecom-s.prem/Documents/test_ws/practise/api-water/components/booking/booking-api.js:25:13)
+    at <anonymous>
+    at process._tickDomainCallback (internal/process/next_tick.js:229:7),
+  label: 'default label',
+  timestamp: '2018-09-13T23:29:13+05:30',
+  [Symbol(level)]: 'info' }
