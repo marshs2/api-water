@@ -14,15 +14,15 @@ class MiddleWareLoggerService {
   }
   /**
    * @description express error handler used for handling middle ware error (express) call like errorHandler({callback:handler})
-   * @description If callback is undefined default callback will be handle with log
+   * @description If callback is undefined default callback will be handle with log.
    * @param {*} options {{callback:middleware error callback}}
    */
   errorHandler (options) {
+    var self = this
     return (options && options.callback) || function (err, req, res, next) {
-      if (!this.options.disable) {
-        this.logger.log({level: this.options.level, message: err})
+      if (!self.options.disable) {
+        self.logger.log({level: options.level, message: typeof err === 'object' ? JSON.stringify(err) : err})
       }
-      console.log('mw-error', err)
       next(err)
     }
   }

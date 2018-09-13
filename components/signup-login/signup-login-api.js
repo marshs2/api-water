@@ -15,10 +15,7 @@ class SignUpLoginAPI extends SignUpLoginModel {
     super.validateGoogle().then(data => {
       this.setHeader(response, defaultHeaders)
       response.send(data)
-      return next()
-    }).catch(error => {
-      return next(error)
-    })
+    }).catch(next)
   }
   setHeader (response, headers) {
     // _.forEach(headers, (headerValue, headerKey) => {

@@ -52,5 +52,6 @@
       },
       "isDailyRotate": true
     }
-  }
+  },
+  "defaultTimeZone": "Asia/Kolkata"
 }

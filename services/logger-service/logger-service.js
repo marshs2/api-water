@@ -54,7 +54,7 @@ class LoggerService {
     this.logger = winston.createLogger({
       transports: transports,
       levels: constants.levels,
-      format: winston.format.combine(winston.format.colorize(), winston.format.label({'label': this.options.label || 'default label'}),
+      format: winston.format.combine(winston.format.label({'label': this.options.label || 'default label'}),
         this.appendTimestamp({ tz: this.options.tz || constants.defaultTimeZone }), winston.format.prettyPrint())
     })
   }

@@ -2,6 +2,19 @@
 
 It uses pm2 for starting node app.
 
+To Run App simply run thi scommand from root directory
+---------------
+nvm install --lts
+pm2 restart ecosystem.config.js --env development
+
+To stop app
+
+pm2 stop id|name
+
+To get list of all running app
+
+pm2 list 
+
 To start app go to scripts folder and type the following command
 ---------------
 For development
