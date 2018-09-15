@@ -1,0 +1,6 @@
+{
+    "error":"new Error(error) | string",
+    "isOperational":false,
+    "exit":false,
+    "severity":"HIGH|LOW|MEDIUM"
+}

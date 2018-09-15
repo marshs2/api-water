@@ -20,9 +20,9 @@ class BookingAPI extends BookingModel {
    */
   getCanData (request, response, next) {
     super.getCanData().then(data => {
-      response.json(data)
+      // response.json(data)
       // next(new Error('testerror'))
-      // throw new Error(JSON.stringify({dude: 'hi'}))
+      throw new Error({dude: 'hi'})
     }).catch(function (err) {
       next(err)
     })

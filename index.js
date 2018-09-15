@@ -35,8 +35,6 @@ function initConfiguaration (path) {
 }
 
 async function init () {
-  config
-
   try {
     config = await initConfiguaration(configPath)
     mwLoggerService = new MWLoggerService(config.data.logger.options)
@@ -54,15 +52,12 @@ async function init () {
       app: serverConfig.app
     })
     await bootstrapRoute.initComponentRoutes(configuaration)
-    serverConfig.app.use(mwLoggerService.errorHandler({level: 'info', callback: testCallback}))
+    serverConfig.app.use(mwLoggerService.errorHandler({level: 'info'}))
   } catch (error) {
     console.log(error)
   }
 }
 
-function testCallback (err, req, res, next) {
-  console.log('testCallback', err)
-}
 init()
 
 /* Graceful Shutdown During pm2 stop command this event will trigger.

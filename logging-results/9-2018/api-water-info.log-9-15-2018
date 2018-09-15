@@ -1,0 +1,10 @@
+{ level: 'info',
+  message: 'object~"[object Object]"',
+  label: 'default label',
+  timestamp: '2018-09-15T20:28:11+05:30',
+  [Symbol(level)]: 'info' }
+{ level: 'info',
+  message: 'object~[object Object]',
+  label: 'default label',
+  timestamp: '2018-09-15T20:32:02+05:30',
+  [Symbol(level)]: 'info' }

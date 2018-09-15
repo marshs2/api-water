@@ -1,14 +1,25 @@
-4-sep-2018
-=============
 
-Solve problem in running nvm command inside shell script saying no command found
-
-30-august-2018
+15-september-2018
 ==================
-Rest Api Error Handling general overview.
-Express error handling.
-Program errors + operational errors logging using winston
+
+Implementation
+===============
+Express error handling. // over need to do logic stuff like log error,mail send , error type 
+Express Log Route Errors to table to have more details on route specific errors
+Querying Logs using Winston logger//
+Program errors + operational errors logging using winston //
 Logging Service should be singleton so needed component should inject without passing reference
+Log Req/Res using nginx and nginx header implementation
+
+Note: If querying log is possible no need for table logging. we can get from file itself.
+
+
+Desired Results:
+================
+1. client can able to get information about specific api error by telling this header id.
+2. Facilitates to track any Middleware error happened in a application
+3. Program errors vs operational errors can be classified
+4. Route Specific errors can be analysed and resolved so error rate will be reduced to zero
 
 1-sep-2018
 
@@ -106,3 +117,18 @@ cookie based vs token based authentication
 Where to Store Tokens?
 With token-based auth, you are given the choice of where to store the JWT. Commonly, the JWT is placed in the browser's local storage and this works well for most use cases. There are some issues with storing JWTs in local storage to be aware of. Unlike cookies, local storage is sandboxed to a specific domain and its data cannot be accessed by any other domain including sub-domains.
 You can store the token in a cookie instead, but the max size of a cookie is only 4kb so that may be problematic if you have many claims attached to the token. Additionally, you can store the token in session storage which is similar to local storage but is cleared as soon as the user closes the browser.
+
+
+
+what i will learn
+Full Stack Developer
+---------------------
+
+Aws 
+Node js 
+React 
+angular 
+postgress
+html,css,js
+
+---------------------
