@@ -4,11 +4,11 @@
 
 Implementation
 ===============
-Express error handling. // over need to do logic stuff like log error,mail send , error type 
+Express error handling. // over need to do logic stuff like log error,mail send , error type// ok
 Express Log Route Errors to table to have more details on route specific errors
 Querying Logs using Winston logger//
 Program errors + operational errors logging using winston //
-Logging Service should be singleton so needed component should inject without passing reference
+Logging Service should be singleton so needed component should inject without passing reference //ok
 Log Req/Res using nginx and nginx header implementation
 
 Note: If querying log is possible no need for table logging. we can get from file itself.

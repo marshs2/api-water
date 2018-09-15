@@ -25,7 +25,9 @@ class BookingAPI extends BookingModel {
       let errorData = {
         data: {'hi': 'error'},
         severity: errorHandler.getSeverity().HIGH,
-        level: errorHandler.getLoggerLevel.info
+        level: errorHandler.getLoggerLevel.info,
+        isOperational: false,
+        route: request.originalUrl
       }
       throw new Error(errorHandler.sendError(errorData))
     }).catch(function (err) {
