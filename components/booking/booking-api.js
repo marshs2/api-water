@@ -7,6 +7,8 @@
     }
 */
 let BookingModel = require('./booking-model')
+const ErrorHandler = require('../../services/error-handler/error-handler')
+const errorHandler = ErrorHandler.instance
 class BookingAPI extends BookingModel {
   constructor (options) {
     super(options)
@@ -20,9 +22,12 @@ class BookingAPI extends BookingModel {
    */
   getCanData (request, response, next) {
     super.getCanData().then(data => {
-      // response.json(data)
-      // next(new Error('testerror'))
-      throw new Error({dude: 'hi'})
+      let errorData = {
+        data: {'hi': 'error'},
+        severity: errorHandler.getSeverity().HIGH,
+        level: errorHandler.getLoggerLevel.info
+      }
+      throw new Error(errorHandler.sendError(errorData))
     }).catch(function (err) {
       next(err)
     })

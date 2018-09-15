@@ -19,11 +19,12 @@ class MiddleWareLoggerService {
    * @param {*} options {{callback:middleware error callback}}
    */
   errorHandler (options) {
-    var self = this
+    let self = this
+    let errorData
     return (options && options.callback) || function (err, req, res, next) {
+      errorData = JSON.parse(err.message)
       if (self.options && !self.options.disable) {
-        self.logger.log({level: options.level, message: typeof err === 'object' ? typeof err + '~' + err.message : err})
-        // self.logger.log({level: options.level, message: typeof err})
+        self.logger.log({level: options.level || errorData.level, message: err})
       }
       next(err)
     }
