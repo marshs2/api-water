@@ -22,17 +22,24 @@ class BookingAPI extends BookingModel {
    */
   getCanData (request, response, next) {
     super.getCanData().then(data => {
-      let errorData = {
-        data: {'hi': 'error'},
-        severity: errorHandler.getSeverity().HIGH,
-        level: errorHandler.getLoggerLevel.info,
-        isOperational: false,
-        route: request.originalUrl
-      }
-      throw new Error(errorHandler.sendError(errorData))
+      response.json(data)
     }).catch(function (err) {
       next(err)
     })
+  }
+
+  /**
+   * Dummy Error Function to test error logging in middleware function will remove later
+   */
+  alwaysThrowError (request) {
+    let errorData = {
+      data: {'hi': 'error'},
+      severity: errorHandler.getSeverity().HIGH,
+      level: errorHandler.getLoggerLevel.info,
+      isOperational: false,
+      route: request.originalUrl
+    }
+    throw new Error(errorHandler.sendError(errorData))
   }
 }
 module.exports = BookingAPI
