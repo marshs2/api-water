@@ -19,6 +19,8 @@ let MWLoggerService = require('./services/mw-logger-service/mw-logger-service')
 let mwLoggerService
 const moment = require('moment-timezone')
 let config
+let LoggerService = require('./services/logger-service/logger-service')
+let loggerService
 
 _.assign(configuaration, {
   componentRoutes: componentRoutes
@@ -37,6 +39,7 @@ function initConfiguaration (path) {
 async function init () {
   try {
     config = await initConfiguaration(configPath)
+    loggerService = new LoggerService(config.data.logger.options)
     mwLoggerService = new MWLoggerService(config.data.logger.options)
     _.assign(configuaration, {
       config: config.data,
@@ -54,7 +57,7 @@ async function init () {
     await bootstrapRoute.initComponentRoutes(configuaration)
     serverConfig.app.use(mwLoggerService.errorHandler({level: 'info'}))
   } catch (error) {
-    console.log(error)
+    loggerService.log({level: 'info', message: error})
   }
 }
 
