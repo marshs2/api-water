@@ -19,6 +19,8 @@ let MWLoggerService = require('./services/mw-logger-service/mw-logger-service')
 let mwLoggerService
 const moment = require('moment-timezone')
 let config
+let LoggerService = require('./services/logger-service/logger-service')
+let loggerService
 
 _.assign(configuaration, {
   componentRoutes: componentRoutes
@@ -35,10 +37,9 @@ function initConfiguaration (path) {
 }
 
 async function init () {
-  config
-
   try {
     config = await initConfiguaration(configPath)
+    loggerService = new LoggerService(config.data.logger.options)
     mwLoggerService = new MWLoggerService(config.data.logger.options)
     _.assign(configuaration, {
       config: config.data,
@@ -54,15 +55,12 @@ async function init () {
       app: serverConfig.app
     })
     await bootstrapRoute.initComponentRoutes(configuaration)
-    serverConfig.app.use(mwLoggerService.errorHandler({level: 'info', callback: testCallback}))
+    serverConfig.app.use(mwLoggerService.errorHandler({level: 'info'}))
   } catch (error) {
-    console.log(error)
+    loggerService.log({level: 'info', message: error})
   }
 }
 
-function testCallback (err, req, res, next) {
-  console.log('testCallback', err)
-}
 init()
 
 /* Graceful Shutdown During pm2 stop command this event will trigger.

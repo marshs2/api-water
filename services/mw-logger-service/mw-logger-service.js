@@ -6,22 +6,25 @@ let LoggerService = require('../logger-service/logger-service')
 class MiddleWareLoggerService {
   /**
      * @description construct with config options object for middle ware
-     * @param {*} options {{level:info|errors|warn|one of the log level of winston logger}}
+     * @param {*} options {please refer winston logger options params}
      */
   constructor (options) {
     this.options = options
     this.logger = new LoggerService(options)
   }
   /**
-   * @description express error handler used for handling middle ware error (express) call like errorHandler({callback:handler})
-   * @description If callback is undefined default callback will be handle with log.
+   * @description express error handler used for handling middle ware error (express)
+   * @description If callback is undefined default callback will be handled which to log.
+   * @description It logs errors to external file , mail to admin , any XYZ functionality needed in future.
    * @param {*} options {{callback:middleware error callback}}
    */
   errorHandler (options) {
-    var self = this
+    let self = this
+    let errorData
     return (options && options.callback) || function (err, req, res, next) {
-      if (!self.options.disable) {
-        self.logger.log({level: options.level, message: typeof err === 'object' ? JSON.stringify(err) : err})
+      errorData = JSON.parse(err.message)
+      if (self.options && !self.options.disable) {
+        self.logger.log({level: options.level || errorData.level, message: err})
       }
       next(err)
     }

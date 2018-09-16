@@ -1,0 +1,15 @@
+{
+    "transports": {
+        "file": [
+            {
+                "level": "info",
+                "filename": "../logging-results/info.log"
+            },
+            {
+                "level": "error",
+                "filename": "../logging-results/error.log"
+            }
+        ]
+    },
+    "isDailyRotate": true
+}

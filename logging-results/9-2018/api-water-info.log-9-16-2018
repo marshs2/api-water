@@ -1,0 +1,8 @@
+{ level: 'info',
+  message: Error: {"data":{"hi":"error"},"severity":1,"isOperational":false,"route":"/api/v1/cans"}
+    at getCanData.then.data (/Users/ecom-s.prem/Documents/test_ws/practise/api-water/components/booking/booking-api.js:32:13)
+    at <anonymous>
+    at process._tickDomainCallback (internal/process/next_tick.js:229:7),
+  label: 'default label',
+  timestamp: '2018-09-16T00:49:33+05:30',
+  [Symbol(level)]: 'info' }

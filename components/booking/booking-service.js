@@ -42,8 +42,8 @@ class BookingService extends DBUtils {
    */
   computeDefaultCanData (data) {
     let defaultCanOptions = _.find(data.rows, function (row) { return row.is_default })
-    let json = {canOptions: data.rows,
-      defaultCanOption: defaultCanOptions,
+    let json = {can_options: data.rows,
+      default_can_option: defaultCanOptions,
       emergency_booking: CONSTANTS.DEFAULT_EMERGENCY_BOOKING,
       upper_bound: CONSTANTS.UPPER_BOUND,
       lower_bound: CONSTANTS.LOWER_BOUND }
