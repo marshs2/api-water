@@ -5,6 +5,6 @@ let errorData = {
   severity: errorHandler.getSeverity().HIGH,
   level: errorHandler.getLoggerLevel.info,
   isOperational: false,
-  route: request.originalUrl
+  route: 'request.originalUrl'
 }
 throw new Error(errorHandler.sendError(errorData))
