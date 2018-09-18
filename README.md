@@ -93,3 +93,11 @@ Build Automation
 ----------------------
 Run build-deploy-automation.sh with wecan.pem file in the same direcory you run to deploy git repo to aws 
 
+Quering Logs using Winston
+------------------------
+
+Logs can be queried using helpers/query-log.js program
+start it by
+node query-log.js | grep your string
+
+Note: Development currently in progress.In Future tool will come to filter by date,time,search text

@@ -1,7 +1,3 @@
-/**
- /* Workaround for supporting clone and query in winston > 2 version
- * @param {*} obj
- */
 function clone (obj) {
   var copy = Array.isArray(obj) ? [] : {}
   for (var i in obj) {

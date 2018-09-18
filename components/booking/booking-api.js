@@ -21,8 +21,10 @@ class BookingAPI extends BookingModel {
    * @param {*} next
    */
   getCanData (request, response, next) {
+    let self = this
     super.getCanData().then(data => {
       response.json(data)
+      // self.alwaysThrowError(request)
     }).catch(function (err) {
       next(err)
     })
@@ -40,6 +42,7 @@ class BookingAPI extends BookingModel {
       route: request.originalUrl
     }
     throw new Error(errorHandler.sendError(errorData))
+    // throw new Error(errorData)
   }
 }
 module.exports = BookingAPI

@@ -4,6 +4,7 @@
     It imports middle ware framework like expressjs any required libraries needed for it.
     Complie with new ecma script
 */
+
 let requireGlob = require('require-glob')
 let componentRoutes = requireGlob('./components/**/index.js')
 let _ = require('lodash')
@@ -57,7 +58,9 @@ async function init () {
     await bootstrapRoute.initComponentRoutes(configuaration)
     serverConfig.app.use(mwLoggerService.errorHandler({level: 'info'}))
   } catch (error) {
-    loggerService.log({level: 'info', message: error})
+    if (loggerService) {
+      loggerService.log({level: 'info', message: error})
+    }
   }
 }
 

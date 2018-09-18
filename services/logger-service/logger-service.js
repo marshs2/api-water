@@ -3,8 +3,7 @@
     Please refer npm winston logger for more detail
     https://www.npmjs.com/package/winston
  */
-
-// import './winston-workaround'
+require('./winston-workaround')
 const winston = require('winston')
 const moment = require('moment-timezone')
 const _ = require('lodash')
@@ -34,6 +33,15 @@ class LoggerService {
     this.options = options
     this.createLogger()
   }
+  /**
+   *
+   */
+  errorReplacer (key, value) {
+    if (value instanceof Error) {
+      return { message: value.message.message, stack: value.stack }
+    }
+    return value
+  }
 
   /** @description this function is used to create logger of different transports at different level
    *
@@ -42,7 +50,7 @@ class LoggerService {
     let transports = []
     let currentTransport
     let self = this
-    winston.addColors(constants.colors)
+
     _.forEach(this.options.transports, function (transportValue, transport) {
       currentTransport = constants.transports[transport]
       _.forEach(self.options.transports[transport], function (currentTransportOptions) {
@@ -51,11 +59,15 @@ class LoggerService {
       })
     })
 
+    const logFormat = winston.format.printf((info) => {
+      return `${JSON.stringify(info, self.errorReplacer)}`
+    })
+
     this.logger = winston.createLogger({
       transports: transports,
       levels: constants.levels,
       format: winston.format.combine(winston.format.label({'label': this.options.label || 'default label'}),
-        this.appendTimestamp({ tz: this.options.tz || constants.defaultTimeZone }), winston.format.prettyPrint())
+        winston.format.timestamp(), logFormat)
     })
   }
   /** @description updateFilename suffixed with date format like mm-yy-dddd and it create folder in mm-yyyy folder and place your file month wise
@@ -122,11 +134,23 @@ class LoggerService {
   log (options) {
     this.logger.log(options)
   }
-  // not working bugs in winstpon library itself //
-  // query (options, callback) {
-  //   // this.logger.query(options, callback)
-  //   winston.query(options, callback)
-  // }
+
+  /**
+   * @description Queries Log from the transports
+   * @param {*} options {from: new Date() - (24 * 60 * 60 * 1000),
+   * until: new Date(),limit: 10,start: 0,order: 'desc',format: winston.format.json(),
+   * fields: ['message'],
+   * transports: {
+      file: [{
+        filename: path_to_log_file,
+        timestamp: true
+      }]
+    }}
+   * @param {*} callback
+   */
+  query (options, callback) {
+    this.logger.query(options, callback)
+  }
   setFormat () {
     this.customFormat = winston.format.printf(info => {
       return `${info.timestamp} [${info.label}] ${info.level}: ${info.message}`
