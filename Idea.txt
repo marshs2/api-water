@@ -1,0 +1,17 @@
+Create Own Logging Tools
+===========================
+
+Do simple things but works heavily
+
+Search Logs by Text
+Search Filters by Date
+Search Filters by Time 
+
+As we are currently supporting india so timezone are not supported.
+
+Implementation
+===========================
+F/E - React JS
+M/W - NodeJs
+B/E - Postgress (Optional since we depending on files for this app)
+Cloud - AWS
