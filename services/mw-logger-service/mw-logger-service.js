@@ -22,9 +22,10 @@ class MiddleWareLoggerService {
     let self = this
     let errorData
     return (options && options.callback) || function (err, req, res, next) {
-      errorData = JSON.parse(err.message)
+      //  errorData = JSON.parse(err.message)
       if (self.options && !self.options.disable) {
-        self.logger.log({level: options.level || errorData.level, message: err})
+        // self.logger.log({level: options.level || errorData.level, message: err.message})
+        self.logger.log({level: options.level, message: err})
       }
       next(err)
     }
