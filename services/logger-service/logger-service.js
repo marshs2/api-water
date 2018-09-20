@@ -30,11 +30,24 @@ class LoggerService {
     if (!options) {
       throw new Error(ERRORS.CONSTRUCTOR_ARGUMENTS_CANNOT_NULL.MESSAGE)
     }
-    this.options = options
+    this.options = _.cloneDeep(options)
+    this.setOriginalPath(options)
     this.createLogger()
   }
   /**
-   *
+   * @description make copy of file name for daily rotate purpose
+   * @param {*} options
+   */
+  setOriginalPath (options) {
+    let self = this
+    _.forEach(this.options.transports, function (transportValue, transport) {
+      _.forEach(self.options.transports[transport], function (currentTransportOptions) {
+        currentTransportOptions.orginalFileName = currentTransportOptions.filename
+      })
+    })
+  }
+  /**
+   *@description Wrapper for seperating message and stack trace
    */
   errorReplacer (key, value) {
     if (value instanceof Error) {
@@ -82,14 +95,15 @@ class LoggerService {
     let pathToFile, pathToFileLength
     let logFolder = mm + '-' + yyyy
     let dir
-
-    if (this.options.isDailyRotate && transportOpts.filename) {
-      pathToFile = transportOpts.filename.split('/')
+    let filePath = transportOpts.orginalFileName
+    if (this.options.isDailyRotate && filePath) {
+      pathToFile = filePath.split('/')
       pathToFileLength = pathToFile.length
       if (pathToFileLength > 1) {
         dir = pathToFile.slice(0, pathToFileLength - 1).join('/') + '/' + logFolder + '/'
         this.createDirectoryNotExists(dir)
         transportOpts.filename = dir + pathToFile[pathToFileLength - 1] + '-' + mm + '-' + dd + '-' + yyyy
+        console.log('transports_to_file', transportOpts.filename)
       } else {
         dir = './' + logFolder + '/'
         this.createDirectoryNotExists(dir)
@@ -99,6 +113,7 @@ class LoggerService {
   }
 
   createDirectoryNotExists (dir) {
+    // console.log('dir', dir)
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir)
     } else {
@@ -131,7 +146,16 @@ class LoggerService {
   add (options) {
     this.logger.add(options)
   }
+
   log (options) {
+    let self = this
+    _.forEach(this.options.transports, function (transportValue, transport) {
+      _.forEach(self.options.transports[transport], function (currentTransportOptions) {
+        if (_.isEqual(currentTransportOptions.level, options.level)) {
+          self.updateFileonDailyRotate(currentTransportOptions)
+        }
+      })
+    })
     this.logger.log(options)
   }
 
