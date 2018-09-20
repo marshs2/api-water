@@ -23,8 +23,8 @@ class BookingAPI extends BookingModel {
   getCanData (request, response, next) {
     let self = this
     super.getCanData().then(data => {
-      response.json(data)
-      // self.alwaysThrowError(request)
+      //response.json(data)
+       self.alwaysThrowError(request)
     }).catch(function (err) {
       next(err)
     })
