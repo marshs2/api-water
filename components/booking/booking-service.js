@@ -22,19 +22,18 @@ class BookingService extends DBUtils {
     }
     super.connect()
     return new Promise((resolve, reject) => {
-      // super.queryPromise(query).then(function (data) {
-      //   if (!data.rows.length) {
-      //     self.disConnect()
-      //     reject(new Error(ERRORS.EMPTY_RECORDS.MESSAGE))
-      //   }
-      //   bookingData = self.computeDefaultCanData(data)
-      //   self.disConnect()
-      // resolve(bookingData)
-      resolve('null')
-      // }).catch(e => {
-      //   self.disConnect()
-      //   reject(e.stack)
-      // })
+      super.queryPromise(query).then(function (data) {
+        if (!data.rows.length) {
+          self.disConnect()
+          reject(new Error(ERRORS.EMPTY_RECORDS.MESSAGE))
+        }
+        bookingData = self.computeDefaultCanData(data)
+        self.disConnect()
+        resolve(bookingData)
+      }).catch(e => {
+        self.disConnect()
+        reject(e.stack)
+      })
     })
   }
   /** @description This method merge can default configuartion from code constants to refined can data obtained from can table
