@@ -6,6 +6,7 @@ const CONSTANTS = {
     USER_AUTHENTICATION: {},
     GUEST_USER: {},
     AGENCY: {}
-  }
+  },
+  METER_TO_STATUTE_MILES: 0.0006213711922373
 }
 module.exports = CONSTANTS

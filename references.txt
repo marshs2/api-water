@@ -84,3 +84,11 @@ https://www.guru99.com/database-normalization.html
 ### NGINX Logging Http Request
 
 https://www.nginx.com/blog/application-tracing-nginx-plus/
+
+### NVM install
+https://github.com/creationix/nvm
+
+### Geo Location Postgress References
+https://www.postgresql.org/docs/8.3/static/earthdistance.html
+https://johanndutoit.net/searching-in-a-radius-using-postgres/
+https://stackoverflow.com/questions/25577461/postgresql-earthdistance-earth-box-with-radius

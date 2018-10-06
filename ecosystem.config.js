@@ -10,7 +10,7 @@ module.exports = {
         'NODE_HOST': 'ec2-13-127-170-233.ap-south-1.compute.amazonaws.com',
         'PGHOST': 'ec2-13-127-170-233.ap-south-1.compute.amazonaws.com',
         'PGPASSWORD': 'poweruserpassword',
-        'PGDATABASE': 'postgres',
+        'PGDATABASE': 'water_db',
         'PGPORT': '5432',
         'PGUSER': 'power_user'
       },
@@ -20,7 +20,7 @@ module.exports = {
         'NODE_HOST': 'ec2-13-127-170-233.ap-south-1.compute.amazonaws.com',
         'PGHOST': 'ec2-13-127-170-233.ap-south-1.compute.amazonaws.com',
         'PGPASSWORD': 'poweruserpassword',
-        'PGDATABASE': 'postgres',
+        'PGDATABASE': 'water_db',
         'PGPORT': '5432',
         'PGUSER': 'power_user'
       },
@@ -30,7 +30,7 @@ module.exports = {
         'NODE_HOST': 'ec2-13-127-170-233.ap-south-1.compute.amazonaws.com',
         'PGHOST': 'ec2-13-127-170-233.ap-south-1.compute.amazonaws.com',
         'PGPASSWORD': 'poweruserpassword',
-        'PGDATABASE': 'postgres',
+        'PGDATABASE': 'water_db',
         'PGPORT': '5432',
         'PGUSER': 'power_user'
       },
