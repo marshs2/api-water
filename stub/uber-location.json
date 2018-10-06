@@ -1,0 +1,20 @@
+{
+    "status": "success",
+    "data": {
+        "addressLine1": "51, Perambur",
+        "addressLine2": "Chennai, Tamil Nadu",
+        "fullAddress": "51, Perambur, Chennai, Tamil Nadu 600011, India",
+        "coordinate": {
+            "latitude": 13.117054,
+            "longitude": 80.249217
+        },
+        "id": "ChIJ9440Z6NlUjoRALd4nm-esic",
+        "locale": "en",
+        "provider": "google_places",
+        "categories": [
+            "street_address"
+        ],
+        "title": "51, Perambur",
+        "subtitle": "Chennai, Tamil Nadu"
+    }
+}

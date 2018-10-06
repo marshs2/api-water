@@ -1,3 +1,23 @@
+22-sep-2018
+-------------
+
+1. F/E analyse how ola categorises location like street , land mark.
+2. Geo
+
+13.1170107,80.249128
+13.6,80.3
+13.7,82.2
+14.5,83.3   
+14.2,84.4
+
+
+21-sep-2018 [backlog]
+=================
+
+Log File name Change is not affected for second log.
+Solution:
+Look for problem in winston lib or use add / remove method provided by winston for that level log
+
 
 15-september-2018
 ==================

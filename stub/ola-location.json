@@ -1,0 +1,25 @@
+{
+    "data": {
+        "formattedAddress": "Creations Divine, 18/28, Asiriyar St, MPM Street, Perambur, Chennai",
+        "city": {
+            "name": "Chennai"
+        },
+        "street": {
+            "name": "Asiriyar Street"
+        },
+        "locality": {
+            "name": "Perambur"
+        },
+        "subLocality": {
+            "name": "MPM Street"
+        },
+        "state": {
+            "name": "Tamil Nadu"
+        },
+        "landmark": {
+            "name": "Creations Divine"
+        },
+        "pinCode": "600011"
+    },
+    "error": null
+}
