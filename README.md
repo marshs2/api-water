@@ -101,3 +101,12 @@ start it by
 node query-log.js | grep your string
 
 Note: Development currently in progress.In Future tool will come to filter by date,time,search text
+
+Postgress Sql restart
+------------------------
+
+sudo service postgresql restart
+
+Check Psql Version
+------------------------
+psql --version
