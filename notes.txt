@@ -340,3 +340,16 @@ NPM commands
 ----------------------
 npm cache clear --force
 
+installing postgis from tar
+----------------------
+
+https://gist.github.com/whyvez/8d19096712ea44ba66b0
+
+Problems faced on postgis installations
+sudo ./configure --with-geosconfig=/home/ec2-user/geos-3.4.2/tools/geos-config --with-pgconfig=/usr/bin/pg_config --with-gdalconfig=/usr/local/bin/gdal-config
+
+sudo ./configure --with-geosconfig=/usr/local/bin/geos-config --with-pgconfig=/usr/bin/pg_config --with-gdalconfig=/usr/local/bin/gdal-config
+cp /usr/share/pgsql92/extension 
+
+Problems is  postgis.control not found in default direcory
+but present in tar file
