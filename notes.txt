@@ -368,7 +368,7 @@ current permission of /var/lib/pgsql
 pg_hba.conf -> 600
 data -> 700
 pgsql -> 700
-
+postgresql.conf - 600
 
 #####
 current permission of /var/lib/pgsql9

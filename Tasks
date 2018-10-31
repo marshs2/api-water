@@ -1,4 +1,23 @@
+Today
+
+changed only  var/lib/pgsql/9.5 pat config
+
+lets try with psql9 path and connect with client
+
+
+dont update aws
+
+
+
+
+
+
 This Week 
+
+
+
+
+
 
 https://trac.osgeo.org/postgis/wiki/UsersWikiPostGIS21Ubuntu1204src
 https://stackoverflow.com/questions/17915928/error-when-installing-postgis-extension-to-postgresql-database
