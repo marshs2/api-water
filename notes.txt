@@ -353,3 +353,26 @@ cp /usr/share/pgsql92/extension
 
 Problems is  postgis.control not found in default direcory
 but present in tar file
+
+Recenrly worked postgress + postgis
+
+https://gist.github.com/fredriks/886576351815b22e9de8f444e7835fb8#file-amazon-sh
+
+
+#####
+current permission of /var/lib/pgsql
+
+/var/lib/pgsql/9.5/data => permission list
+
+9.5 - 700
+pg_hba.conf -> 600
+data -> 700
+pgsql -> 700
+
+
+#####
+current permission of /var/lib/pgsql9
+
+/var/lib/pgsql9  - 700
+data -> 700
+pg_hba.conf -> 600
