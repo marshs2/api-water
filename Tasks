@@ -1,3 +1,44 @@
+Today
+
+changed only  var/lib/pgsql/9.5 pat config
+
+lets try with psql9 path and connect with client
+
+
+dont update aws
+
+
+
+
+
+
+This Week 
+
+
+
+
+
+
+https://trac.osgeo.org/postgis/wiki/UsersWikiPostGIS21Ubuntu1204src
+https://stackoverflow.com/questions/17915928/error-when-installing-postgis-extension-to-postgresql-database
+https://stackoverflow.com/questions/50823092/cannot-build-rgdal-package-on-amazon-linux-ami
+
+check ld_librartpath
+
+Finally narrow down  problem
+==========================
+have to resolve 
+ERROR:  could not access file "$libdir/rtpostgis-2.1": No such file or directory
+
+
+
+changes
+sudo nano ld.so.conf
+include ld.so.conf.d/*.conf -> include /etc/ld.so.conf.d/*.conf
+======
+
+solve 
+
 22-sep-2018
 -------------
 
