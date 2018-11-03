@@ -2,6 +2,9 @@
 
 It uses pm2 for starting node app.
 
+To Install pm2 globally use the following command
+npm install pm2@latest -g
+
 To Run App simply run thi scommand from root directory
 ---------------
 nvm install --lts
@@ -23,6 +26,7 @@ sudo sh start-node-dev.sh
 For staging
 ---------------
 sudo sh start-node-stg.sh 
+
 For production
 ---------------
 sudo sh start-node-prod.sh
@@ -110,3 +114,15 @@ sudo service postgresql restart
 Check Psql Version
 ------------------------
 psql --version
+
+Nginx Commands
+------------------------
+
+To check status of nginx
+service nginx status 
+
+To restart nginx
+sudo /etc/init.d/nginx restart
+
+
+
