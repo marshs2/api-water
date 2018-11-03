@@ -1,0 +1,27 @@
+Problem 1:
+Api endpoint not working suddenly.
+
+Recent Actions:
+During Postgress + postgis installation setup aws got rebooted.
+Some file permission were changed.
+Some uninstalls happened & config file got changed.
+
+So it might be changes.
+Actual problem is api got running only if port is given. But in nginx proxy we already given redirection. so no need of 
+explicit setting needed.
+
+Solution:
+
+Restarted nginx works fine
+
+Problem 2
+
+Some times on crash or reboot or any cases your node may stop. Please Keep the following check
+===============================================================================================
+solutions
+====
+Check nginx status 
+check node running status 
+check node or pm2 logs for error
+check your program external file logs for errors.
+======
