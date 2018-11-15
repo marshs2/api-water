@@ -124,5 +124,6 @@ service nginx status
 To restart nginx
 sudo /etc/init.d/nginx restart
 
+Please Refer Aws Launchpad Document in ways2startup for aws setup related queries.
 
 
