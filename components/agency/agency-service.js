@@ -15,7 +15,7 @@ class AgencyService extends DBUtils {
   getNearByAgency (payload) {
     let self = this
     let agencyData
-    let queryString = 'SELECT * FROM mytable WHERE ST_DWithin(geom, ST_MakePoint(' + payload.long + ',' + payload.lat + ')::geography, 5000);'
+    let queryString = 'SELECT * FROM agency WHERE ST_DWithin(geom, ST_MakePoint(' + payload.long + ',' + payload.lat + ')::geography, 5000);'
     let query = {
       // give the query a unique name
       name: 'fetch-nearby-agency',
