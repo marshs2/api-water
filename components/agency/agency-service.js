@@ -1,14 +1,15 @@
 
 var DBUtils = require('../../services/db-service/db-utils')
 const _ = require('lodash')
-const ERRORS = require('./agency-errors')
+const ERRORS = require('../../globals/errors.json')
 const CONSTANTS = require('./agency-constants')
 const HTTP_RESPONSE = require('../../globals/http-response')
 class AgencyService extends DBUtils {
   constructor (options) {
-    super(options)
-    this.options = options
+    super(options.db)
+    this.opts = options
   }
+
   /** @description This method is used to fetch all possible can data from can table
    *
    */
@@ -25,12 +26,8 @@ class AgencyService extends DBUtils {
     super.connect()
     return new Promise((resolve, reject) => {
       super.queryPromise(query).then(function (data) {
-        if (!data.rows.length) {
-          self.disConnect()
-          reject(new Error(ERRORS.EMPTY_RECORDS.MESSAGE))
-        }
-        agencyData = self.computeAgencyList(data.rows)
         self.disConnect()
+        agencyData = self.computeAgencyList(data.rows)
         resolve(agencyData)
       }).catch(e => {
         self.disConnect()
@@ -44,8 +41,12 @@ class AgencyService extends DBUtils {
    */
   computeAgencyList (data) {
     let json = {
-      status: HTTP_RESPONSE.STATUS.SUCCESS,
+      status: data.length > 0 ? HTTP_RESPONSE.STATUS.SUCCESS : HTTP_RESPONSE.STATUS.FAIL,
       data: data
+    }
+    if (json.status === HTTP_RESPONSE.STATUS.FAIL) {
+      json.reasonCode = ERRORS.EMPTY_RECORDS.CODE
+      json.message = ERRORS.EMPTY_RECORDS.MESSAGE
     }
     return json
   }

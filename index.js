@@ -53,7 +53,8 @@ async function init () {
     server = serverConfig.server
     _.assign(configuaration, {
       express: serverConfig.express,
-      app: serverConfig.app
+      app: serverConfig.app,
+      db: getDBConnectionConfig(configuaration)
     })
     await bootstrapRoute.initComponentRoutes(configuaration)
     serverConfig.app.use(mwLoggerService.errorHandler({level: 'info'}))
@@ -64,6 +65,16 @@ async function init () {
   }
 }
 
+function getDBConnectionConfig (options) {
+  return {
+    PGUSER: options.config_scope.getConfig('PGUSER'),
+    PGPASSWORD: options.config_scope.getConfig('PGPASSWORD'),
+    PGHOST: options.config_scope.getConfig('PGHOST'),
+    PGPORT: options.config_scope.getConfig('PGPORT'),
+    PGDATABASE: options.config_scope.getConfig('PGDATABASE')
+  }
+}
+
 init()
 
 /* Graceful Shutdown During pm2 stop command this event will trigger.
@@ -71,7 +82,7 @@ init()
    DB connection close and resource release can be performed here.
  */
 process.on('SIGINT', () => {
-  console.info('SIG INT RECEIVED', moment().tz(config.data.defaultTimeZone).format())
+  // console.info('SIG INT RECEIVED', moment().tz(config.data.defaultTimeZone).format())
   try {
     if (server._handle != null) {
       server.close((err) => {

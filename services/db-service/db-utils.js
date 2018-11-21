@@ -29,7 +29,12 @@ class DBUtils {
  * @return {null}
  */
   constructor (options) {
-    this.options = options
+    // this.options = options
+    Object.defineProperty(this, 'options', {
+      configurable: true,
+      writable: false,
+      value: options
+    })
     if (this.options && this.options.autoConnect) {
       this.client = new Client({
         connectionString: this.getConnectionString()
@@ -37,11 +42,11 @@ class DBUtils {
     }
   }
   getConnectionString () {
-    let user = this.options.config_scope.getConfig('PGUSER')
-    let password = this.options.config_scope.getConfig('PGPASSWORD')
-    let host = this.options.config_scope.getConfig('PGHOST')
-    let port = this.options.config_scope.getConfig('PGPORT')
-    let database = this.options.config_scope.getConfig('PGDATABASE')
+    let user = this.options.PGUSER // this.options.config_scope.getConfig('PGUSER')
+    let password = this.options.PGPASSWORD // this.options.config_scope.getConfig('PGPASSWORD')
+    let host = this.options.PGHOST // this.options.config_scope.getConfig('PGHOST')
+    let port = this.options.PGPORT // this.options.config_scope.getConfig('PGPORT')
+    let database = this.options.PGDATABASE // this.options.config_scope.getConfig('PGDATABASE')
     let connectionString
 
     if (!user || !password || !host || !port || !database) {

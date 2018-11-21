@@ -1,12 +1,12 @@
 /* Booking Service is used for DataAccessLayer logic like pulling data from db */
 var DBUtils = require('../../services/db-service/db-utils')
 const _ = require('lodash')
-const ERRORS = require('./booking-errors')
+const ERRORS = require('../../globals/errors.json')
 const CONSTANTS = require('./booking-constants')
 class BookingService extends DBUtils {
   constructor (options) {
-    super(options)
-    this.options = options
+    super(options.db)
+    this.opts = options
   }
   /** @description This method is used to fetch all possible can data from can table
    *
