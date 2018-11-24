@@ -51,6 +51,7 @@ async function init () {
         configuaration.config_scope.getConfig('server:default_port')
     })
     server = serverConfig.server
+    serverConfig.app.use(setDefaultResponseHeader)
     _.assign(configuaration, {
       express: serverConfig.express,
       app: serverConfig.app,
@@ -63,6 +64,12 @@ async function init () {
       loggerService.log({level: 'info', message: error})
     }
   }
+}
+
+function setDefaultResponseHeader (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  next()
 }
 
 function getDBConnectionConfig (options) {

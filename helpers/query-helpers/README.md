@@ -26,3 +26,4 @@ For aws hit it
 
 http://ec2-13-127-170-233.ap-south-1.compute.amazonaws.com:5001/insert-agency?lat=13.1080631&long=80.2028936&agency_name=srßinivasa&agency_street=srinivasa%20street&mob_no=8122209219&sup_rad=5&auto_enable=true&avail_cans=100&fill_dur=10~5&agency_code=1&availablity=true
 
+
