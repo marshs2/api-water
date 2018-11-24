@@ -24,3 +24,7 @@ SELECT ST_AsGeoJSON(geom) FROM mytable;  //geom column as json
 UPDATE public.agency
 	SET geom =  ST_GeomFromText('POINT(80.2336651 13.0997511)', 4326)
 	WHERE agency_id=1;
+
+
+-- create index on geom column
+CREATE INDEX index_agency ON agency USING gist(geom);

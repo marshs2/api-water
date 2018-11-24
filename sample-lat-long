@@ -4,8 +4,19 @@ egmore
 central
 
 
+http://localhost:5001/insert-agency?lat=13.1080631&long=80.2028936&agency_name=srinivasa&agency_street=srinivasa%20street&mob_no=8122209219&sup_rad=5&auto_enable=true&avail_cans=100&fill_dur=10~5&agency_code=1&availablity=true
+
+
+
+
 perambur lat,long
 ========= 
+
+srinivasa agency
+srinivasa street perambur
+13.1120567,80.2028936
+
+=
 
 vivekanda agency
 vivekanda street perambur 
@@ -30,6 +41,12 @@ buddha street perambur
 ramanujar agency
 ramanujar street perambur
 13.1080944,80.2453592
+
+=
+
+sai agency
+sau street perambut
+13.112439,80.2413884
 
 ==========
 
