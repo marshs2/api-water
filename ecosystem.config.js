@@ -33,7 +33,7 @@ module.exports = {
         'PGDATABASE': 'water_db',
         'PGPORT': '5432',
         'PGUSER': 'power_user'
-      },
+      }
 
     }
   ]
