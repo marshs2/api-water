@@ -19,4 +19,9 @@ pm2 start api-water
 pm2 restart ecosystem.config.js --env production
 cd ..
 rm -rf api-water.tgz
+cd api-water/api-doc
+sh start.sh
+cd ..
+cd helpers/query-helpers/
+sh run-ops.sh
 EOF

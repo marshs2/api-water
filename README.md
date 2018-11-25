@@ -126,4 +126,9 @@ sudo /etc/init.d/nginx restart
 
 Please Refer Aws Launchpad Document in ways2startup for aws setup related queries.
 
+Api-documentation
+==================
+
+For api documentation use this url
+http://ec2-13-127-170-233.ap-south-1.compute.amazonaws.com:4000/api-docs
 
