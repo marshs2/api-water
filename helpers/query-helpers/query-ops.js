@@ -1,6 +1,6 @@
 /**
  * Use this to run this program to insert sample data into agency table
- * 
+ *
  */
 
 const DBUtils = require('../../services/db-service/db-utils')
@@ -52,6 +52,27 @@ class QueryOps extends DBUtils {
       })
     })
   }
+  showAgencyCanPricing (payload) {
+    let self = this
+    let queryString = `SELECT a.agency_id, a.agency_name, b.price
+    FROM agency as a  inner join agency_can_pricing as b on ${payload.can_id} = b.can_id and a.agency_id = b.agency_id 
+    WHERE ST_DWithin(geom, ST_MakePoint(${payload.long},${payload.lat})::geography, 5000);`
+    super.connect()
+    let query = {
+      name: 'show-agency-can-pricing',
+      text: queryString
+    }
+    return new Promise((resolve, reject) => {
+      super.queryPromise(query).then((data) => {
+        self.disConnect()
+        resolve(data.rows)
+      }).catch(e => {
+        self.disConnect()
+        reject(e.stack)
+      })
+    })
+  }
+
   disConnect () {
     super.disConnect()
   }
@@ -92,6 +113,17 @@ app.get('/show-agency', function (req, res) {
       data: data
     })
   }).catch((error) => {
+    res.json({
+      error: error
+    })
+  })
+})
+app.get('/agency-can-price', function (req, res) {
+  queryOps.showAgencyCanPricing(req.query).then((data) => {
+    res.json({
+      data: data
+    })
+  }).catch(error => {
     res.json({
       error: error
     })
