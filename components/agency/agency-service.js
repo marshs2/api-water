@@ -11,12 +11,15 @@ class AgencyService extends DBUtils {
   }
 
   /** @description This method is used to fetch all possible can data from can table
-   *
+   *  Performance need to check for this query...
    */
   getNearByAgency (payload) {
     let self = this
     let agencyData
-    let queryString = 'SELECT * FROM agency WHERE ST_DWithin(geom, ST_MakePoint(' + payload.long + ',' + payload.lat + ')::geography, 5000);'
+    let radInMeters = 5000
+    let queryString = `SELECT a.agency_id, a.agency_name,a.mobile_no,a.owner_name,b.price,ST_Distance(ST_MakePoint(${payload.long},${payload.lat})::geography,a.geom) as distance
+    FROM agency as a  inner join agency_can_pricing as b on ${payload.can_id} = b.can_id and a.agency_id = b.agency_id 
+    WHERE ST_DWithin(geom, ST_MakePoint(${payload.long},${payload.lat})::geography, ${radInMeters});`
     let query = {
       // give the query a unique name
       name: 'fetch-nearby-agency',

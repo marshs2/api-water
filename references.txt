@@ -92,3 +92,4 @@ https://github.com/creationix/nvm
 https://www.postgresql.org/docs/8.3/static/earthdistance.html
 https://johanndutoit.net/searching-in-a-radius-using-postgres/
 https://stackoverflow.com/questions/25577461/postgresql-earthdistance-earth-box-with-radius
+https://www.compose.com/articles/geofile-everything-in-the-radius-with-postgis/ //working ....
